@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.test.TestFragment">
+
+    <!-- 개인정보 출력 !-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#fff">
+
+        <!-- 이름 관리 !-->
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="40dp">
+
+            <!-- 이름 !-->
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="이 름"
+                android:textSize="25sp"></TextView>
+
+            <!-- 본인 이름  !-->
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:text="본인 이름"></TextView>
+        </LinearLayout>
+
+        <!-- 이메일 관리 !-->
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp">
+
+            <!-- 이메일 !-->
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="이메일"
+                android:textSize="25sp"></TextView>
+
+            <!-- 본인 이메일  !-->
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:text="본인 이메일">
+            </TextView>
+        </LinearLayout>
+
+        <!-- 아이디 관리 !-->
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp">
+
+            <!-- 아이디 !-->
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="아이디"
+                android:textSize="25sp"></TextView>
+
+            <!-- 본인 이메일  !-->
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:text="본인 아이디"></TextView>
+        </LinearLayout>
+
+        <!-- 비밀번호 변경 버튼 !-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="비밀번호 변경"
+                android:textSize="20sp">
+            </Button>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,10 +2,8 @@ package capstone.app.toa;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Menu;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;
@@ -15,6 +13,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
+import capstone.app.toa.api.ToaApi;
 import capstone.app.toa.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,15 +21,14 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
-    private boolean isLogin = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (!isLogin) {
-            startActivity(new Intent(this, LoginActivity.class));
-            finish();
+        if (ToaApi.getInstance().getLoginManager().getFirebaseAuth().getCurrentUser() == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         }
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -40,13 +38,12 @@ public class MainActivity extends AppCompatActivity {
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration
-                                                .Builder(R.id.nav_home, R.id.nav_gallery, R.id.nav_privacy_and_security, R.id.nav_slideshow)
-                                                .setOpenableLayout(drawer)
-                                                .build();
+
+        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_gallery, R.id.nav_privacy_and_security, R.id.nav_slideshow)
+                                                .setOpenableLayout(drawer).build();
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }

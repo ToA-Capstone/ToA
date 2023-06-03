@@ -6,17 +6,77 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="-162dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="400dp">
+            <!--할일추가 레이아웃-->
+            <LinearLayout
+                android:id="@+id/Layout_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/Button_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+" />
+            </LinearLayout>
+        </ScrollView>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="true"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <SlidingDrawer
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:layout_gravity="bottom"
+                android:content="@+id/content"
+                android:handle="@+id/handle"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/handle"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    app:layout_scrollFlags="scroll|enterAlways" />
+
+                <LinearLayout
+                    android:id="@+id/content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="추천목록"
+                        android:textSize="20dp" />
+
+                    <HorizontalScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/layout_required"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="#63CDDF"
+                            android:orientation="horizontal"></LinearLayout>
+                    </HorizontalScrollView>
+                </LinearLayout>
+            </SlidingDrawer>
+        </FrameLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,4 +10,11 @@ public class LoginManager {
         return firebaseAuth;
     }
 
+    public String getUserUid() {
+        if (firebaseAuth.getCurrentUser() == null) {
+            return null;
+        }
+        return firebaseAuth.getCurrentUser().getUid();
+    }
+
 }

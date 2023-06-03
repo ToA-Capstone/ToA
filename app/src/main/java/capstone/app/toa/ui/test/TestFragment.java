@@ -14,7 +14,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
 import capstone.app.toa.LoginActivity;
-import capstone.app.toa.MainActivity;
 import capstone.app.toa.api.ToaApi;
 import capstone.app.toa.databinding.FragmentTestBinding;
 
@@ -22,20 +21,17 @@ public class TestFragment extends Fragment {
 
     private FragmentTestBinding binding;
 
-    private Button logoutButton;
+    private Button logoutButton, testButton;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        TestViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(TestViewModel.class);
+        TestViewModel slideshowViewModel = new ViewModelProvider(this).get(TestViewModel.class);
 
         binding = FragmentTestBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-//        final TextView textView = binding.textSlideshow;
-//        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-
         logoutButton = binding.logoutButton;
+        testButton = binding.firebaseTest;
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +44,12 @@ public class TestFragment extends Fragment {
             }
         });
 
+        testButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToaApi.getInstance().getDataManager().test();
+            }
+        });
         return root;
     }
 

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 프로필 !-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        >
+
+        <!-- 프로필 사진 !-->
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:background="@drawable/profile"
+            android:textSize="40sp">
+        </TextView>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/profile_button_profil"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="310dp"
+        android:layout_marginTop="-40dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/camera"
+        android:textSize="8sp"></Button>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_margin="15dp">
+
+        <!-- 이름 !-->
+        <EditText
+            android:id="@+id/profile_edittext_name"
+            android:hint="            이 름"
+            android:layout_gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content">
+        </EditText>
+
+        <!-- 이름 수정 버튼 !-->
+        <Button
+            android:id="@+id/profile_button_name"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:textSize="8sp"
+            android:background="@drawable/correction">
+        </Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_margin="15dp">
+
+        <!-- 아이디 !-->
+        <EditText
+            android:id="@+id/profile_edittext_id"
+            android:hint="          아 이 디"
+            android:layout_gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content">
+         </EditText>
+
+        <!-- 아이디 수정 버튼 !-->
+        <Button
+            android:id="@+id/profile_button_id"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:textSize="8sp"
+            android:background="@drawable/correction">
+        </Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_margin="15dp">
+         <!-- 이메일 !-->
+         <EditText
+             android:id="@+id/profile_edittext_email"
+              android:hint="          이 메 일"
+              android:layout_gravity="center"
+              android:layout_width="150dp"
+              android:layout_height="wrap_content">
+         </EditText>
+
+        <!-- 이메일 수정 버튼 !-->
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:textSize="8sp"
+            android:id="@+id/profile_button_email"
+            android:background="@drawable/correction">
+        </Button>
+    </LinearLayout>
+
+         <!-- 비빌번호 변경 !-->
+         <Button
+             android:layout_marginTop="15dp"
+             android:layout_marginBottom="150dp"
+             android:id="@+id/profile_button_changpassword"
+             android:text="비밀번호 변경"
+             android:layout_gravity="center"
+             android:layout_width="170dp"
+             android:layout_height="50dp"></Button>
+    </LinearLayout>

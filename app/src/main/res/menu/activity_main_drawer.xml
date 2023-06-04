@@ -9,12 +9,12 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="Home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Memo" />
+            android:id="@+id/nav_community"
+            android:icon="@drawable/memo"
+            android:title="커뮤니티" />
         <item
             android:id="@+id/nav_privacy_and_security"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/lock"
             android:title="개인정보 및 보안" />
         <item
             android:id="@+id/nav_slideshow"

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="550dp"
+        android:orientation="vertical"
+        android:background="#AC58FA"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:background="#FFFFFF"
+            android:layout_gravity="center">
+
+            <!-- 돋보기 모양!-->
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/reading_glasses"
+                android:textSize="20sp"/>
+
+            <!-- 이름 검색!-->
+            <EditText
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#FFFFFF"
+                android:hint="이름 검색"
+                android:textSize="20sp"></EditText>
+        </LinearLayout>
+
+        <!-- 친구 목록!-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="430dp"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="427dp">
+                <!--할일추가 레이아웃-->
+                <LinearLayout
+                    android:id="@+id/invite_friends_board"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                </LinearLayout>
+            </ScrollView>
+         </LinearLayout>
+
+        <!-- 초대 아이콘!-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="#FFFFFF">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="초대"
+                android:background="#FFFFFF"
+                android:textSize="32sp"/>
+            <ImageView
+                android:background="@drawable/send"
+                android:layout_width="60dp"
+                android:layout_height="60sp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- 아이디 검색 !-->
+    <LinearLayout
+        android:layout_marginTop="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="검색하실 ID를 입력하세요"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1" />
+
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="검색" />
+    </LinearLayout>
+
+    <!-- 검색 결과 및 추가 버튼!-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="검색 결과"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/addFriend_Button_add"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="260dp"
+            android:background="@drawable/plusfriend"/>
+    </LinearLayout>
+
+    <!-- 검색 결과 리스트뷰!-->
+    <ListView
+        android:id="@+id/addFriend_Listview_searchview"
+        android:layout_width="match_parent"
+        android:layout_height="182dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- 기존 친구 및 삭제 버튼!-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="기존 친구"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/addFriend_Button_minus"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="260dp"
+            android:background="@drawable/minusfriend" />
+    </LinearLayout>
+
+    <!-- 검색 결과 리스트뷰!-->
+        <ListView
+            android:id="@+id/addFriend_Listview_friendview"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:layout_marginTop="8dp" />
+</LinearLayout>

@@ -28,11 +28,12 @@ import capstone.app.toa.api.ToaApi;
 
 public class LoginActivity extends AppCompatActivity {
 
-
+    private static ToaApi api = ToaApi.getInstance();
     private static final int RC_SIGN_IN = 9001;
 
     private GoogleSignInClient googleSignInClient;
     private SignInButton signInButton;
+    private boolean startLogin = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,10 @@ public class LoginActivity extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivityForResult(googleSignInClient.getSignInIntent(), RC_SIGN_IN);
+                if (!startLogin) {
+                    startLogin = true;
+                    startActivityForResult(googleSignInClient.getSignInIntent(), RC_SIGN_IN);
+                }
             }
         });
     }
@@ -76,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
-        ToaApi.getInstance().getLoginManager().getFirebaseAuth().signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        api.getUserManager().getAuth().signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
@@ -92,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        startLogin = false;
         finish();
     }
 

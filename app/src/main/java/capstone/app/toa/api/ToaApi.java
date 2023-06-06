@@ -1,7 +1,7 @@
 package capstone.app.toa.api;
 
-import capstone.app.toa.api.manager.DataManager;
-import capstone.app.toa.api.manager.LoginManager;
+import capstone.app.toa.api.manager.DatabaseManager;
+import capstone.app.toa.api.manager.UserManager;
 
 public class ToaApi {
 
@@ -14,15 +14,16 @@ public class ToaApi {
         return instance;
     }
 
-    private LoginManager loginManager = new LoginManager();
+    private DatabaseManager databaseManager = new DatabaseManager();
 
-    public LoginManager getLoginManager() {
-        return loginManager;
+    public DatabaseManager getDatabaseManager() {
+        return databaseManager;
     }
 
-    private DataManager dataManager = new DataManager();
+    private UserManager userManager = new UserManager();
 
-    public DataManager getDataManager() {
-        return dataManager;
+    public UserManager getUserManager() {
+        return userManager;
     }
+
 }

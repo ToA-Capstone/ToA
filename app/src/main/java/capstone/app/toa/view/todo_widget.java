@@ -1,4 +1,4 @@
-package capstone.app.toa;
+package capstone.app.toa.view;
 
 import android.content.Context;
 import android.view.View;

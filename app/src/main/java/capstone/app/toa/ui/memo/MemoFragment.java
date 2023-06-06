@@ -10,9 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import capstone.app.toa.api.fragment.ToaFragment;
 import capstone.app.toa.databinding.FragmentMemoBinding;
 
-public class MemoFragment extends Fragment {
+public class MemoFragment extends ToaFragment {
 
     private FragmentMemoBinding binding;
 

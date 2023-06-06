@@ -15,9 +15,10 @@ import com.shashank.sony.fancytoastlib.FancyToast;
 
 import capstone.app.toa.LoginActivity;
 import capstone.app.toa.api.ToaApi;
+import capstone.app.toa.api.fragment.ToaFragment;
 import capstone.app.toa.databinding.FragmentTestBinding;
 
-public class TestFragment extends Fragment {
+public class TestFragment extends ToaFragment {
 
     private FragmentTestBinding binding;
 
@@ -36,7 +37,7 @@ public class TestFragment extends Fragment {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToaApi.getInstance().getLoginManager().getFirebaseAuth().signOut();
+                ToaApi.getInstance().getUserManager().getAuth().signOut();
                 FancyToast.makeText(getActivity(), "로그아웃", FancyToast.LENGTH_SHORT, FancyToast.WARNING, false).show();
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -47,7 +48,7 @@ public class TestFragment extends Fragment {
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToaApi.getInstance().getDataManager().test();
+                ToaApi.getInstance().getDatabaseManager().test();
             }
         });
         return root;

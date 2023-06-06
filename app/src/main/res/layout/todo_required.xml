@@ -3,7 +3,7 @@
     android:layout_width="200dp"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".todo_required"
+    tools:context=".view.todo_required"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"

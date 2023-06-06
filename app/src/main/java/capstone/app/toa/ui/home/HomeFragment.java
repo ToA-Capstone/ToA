@@ -17,9 +17,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import capstone.app.toa.R;
+import capstone.app.toa.api.fragment.ToaFragment;
 import capstone.app.toa.databinding.FragmentHomeBinding;
 
-public class HomeFragment extends Fragment implements GestureDetector.OnGestureListener {
+public class HomeFragment extends ToaFragment implements GestureDetector.OnGestureListener {
 
     private FragmentHomeBinding binding;
 
@@ -31,8 +32,6 @@ public class HomeFragment extends Fragment implements GestureDetector.OnGestureL
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

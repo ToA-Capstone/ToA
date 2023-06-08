@@ -18,9 +18,14 @@ public class UserTodoChangeListener extends CustomValueEventListener {
         ArrayList<Todo> list = snapshot.getValue(typeIndicator);
 
         if (list != null) {
-            api.getTodos().clear();
-            api.getTodos().addAll(list);
+            api.getTodoManager().toList().clear();
+            api.getTodoManager().toList().addAll(list);
         }
     }
+
+    /**
+     * 데이터가 바뀐 뒤 실행되는 메소드
+     */
+    public void onChanged() {}
 
 }

@@ -15,11 +15,16 @@ public class UserCreatedCheckListener extends CustomValueEventListener {
         boolean changed = false;
 
         if (created_at == null || created_at < 0) {
-            api.getDatabase().getUserReference().child("created_at").setValue(System.currentTimeMillis());
+            api.getDatabaseManager().getUserReference().child("created_at").setValue(System.currentTimeMillis());
             changed = true;
         }
 
 
     }
+
+    /**
+     * 데이터가 바뀐 뒤 실행되는 메소드
+     */
+    public void onChanged() {}
 
 }

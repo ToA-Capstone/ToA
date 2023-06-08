@@ -31,18 +31,25 @@ public class TodoManager {
 
     public void add(Todo todo) {
         list.add(todo);
+        updateDB();
     }
     public void add(int index, Todo todo) {
         list.add(index, todo);
+        updateDB();
     }
     public void set(int index, Todo todo) {
         list.set(index, todo);
+        updateDB();
     }
     public boolean remove(Todo todo) {
-        return list.remove(todo);
+        boolean result = list.remove(todo);
+        if (result) {
+            updateDB();
+        }
+        return result;
     }
 
-    public void update() {
+    public void updateDB() {
         getReference().setValue(list);
     }
 

@@ -1,10 +1,26 @@
 package capstone.app.toa.api.manager;
 
+import com.google.firebase.database.DatabaseReference;
+
 import java.util.HashMap;
 
+import capstone.app.toa.api.ToaApi;
 import capstone.app.toa.api.object.Community;
 
 public class CommunityManager {
+
+    private static ToaApi api = ToaApi.getInstance();
+
+    private HashMap<String, DatabaseReference> references = new HashMap<>();
+
+    public DatabaseReference getReference(Community community) {
+        String name = community.getName();
+        if (!references.containsKey(name)) {
+            references.put(name, api.getDatabaseManager().getCommunityReference().child(name));
+        }
+        return references.get(name);
+    }
+
 
     private HashMap<String, Community> map = new HashMap<>();
 
@@ -33,4 +49,7 @@ public class CommunityManager {
         return map.get(name);
     }
 
+    public void updateDB(Community community) {
+
+    }
 }

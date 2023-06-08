@@ -19,13 +19,23 @@ public class CommunityOwnerChangeListener extends CustomValueEventListener {
 
     private Community community;
 
+    public Community getCommunity() {
+        return community;
+    }
+
     @Override
     public void onDataChange(@NonNull DataSnapshot snapshot) {
         String owner = snapshot.getValue(String.class);
 
         if (owner != null) {
             community.setOwner(owner);
+            onChanged();
         }
     }
+
+    /**
+     * 데이터가 바뀐 뒤 실행되는 메소드
+     */
+    public void onChanged() {}
 
 }

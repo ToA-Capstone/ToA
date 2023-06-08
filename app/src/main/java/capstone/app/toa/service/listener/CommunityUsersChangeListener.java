@@ -19,6 +19,10 @@ public class CommunityUsersChangeListener extends CustomValueEventListener {
 
     private Community community;
 
+    public Community getCommunity() {
+        return community;
+    }
+
     @Override
     public void onDataChange(@NonNull DataSnapshot snapshot) {
         GenericTypeIndicator<ArrayList<String>> typeIndicator = new GenericTypeIndicator<ArrayList<String>>() {};
@@ -27,7 +31,13 @@ public class CommunityUsersChangeListener extends CustomValueEventListener {
         if (list != null) {
             community.getUsers().clear();
             community.getUsers().addAll(list);
+            onChanged();
         }
     }
+
+    /**
+     * 데이터가 바뀐 뒤 실행되는 메소드
+     */
+    public void onChanged() {}
 
 }

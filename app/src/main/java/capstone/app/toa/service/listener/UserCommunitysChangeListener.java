@@ -17,9 +17,15 @@ public class UserCommunitysChangeListener extends CustomValueEventListener {
         ArrayList<String> list = snapshot.getValue(typeIndicator);
 
         if (list != null) {
-            api.getUser().getCommunitys().clear();
-            api.getUser().getCommunitys().addAll(list);
+            api.getUserManager().getCommunitys().clear();
+            api.getUserManager().getCommunitys().addAll(list);
+            onChanged();
         }
     }
+
+    /**
+     * 데이터가 바뀐 뒤 실행되는 메소드
+     */
+    public void onChanged() {}
 
 }

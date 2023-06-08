@@ -1,22 +1,17 @@
-package capstone.app.toa.api.data;
+package capstone.app.toa.api.object;
 
+import capstone.app.toa.api.ToaApi;
 
-import java.util.UUID;
+public class Todo {
 
-public class TodoData {
-
-    private UUID uuid;
-    private String title, content, created_User, deleted_User, updated_User;
-    private boolean complete, important, deleted;
-    private int repeat_Type, repeat_Period;
-    private long alarm_At, ended_At, created_At, deleted_At, updated_At;
-
-    public void setUUID(UUID id) {
-        this.uuid = id;
-    }
-    public UUID getUUID() {
-        return uuid;
-    }
+    // 순서대로 제목, 내용, 제작 유저 (커뮤니티만), 삭제 유저 (커뮤니티만), 마지막 수정 유저 (커뮤니티만)
+    private String title = null, content = null, created_User = null, deleted_User = null, updated_User = null;
+    // 완료 여부, 중요 여부, 삭제 여부
+    private boolean complete = false, important = false, deleted = false;
+    // 반복 타입 [0: 년, 1: 월, 2: 주, 3: 일, -1: 반복 X], 반복 간격
+    private int repeat_Type = -1, repeat_Period = -1;
+    // 알람 시간, 끝나는 시간, 생성 시간, 삭제 시간, 마지막 수정 시간
+    private long alarm_At = -1, ended_At = -1, created_At = -1, deleted_At = -1, updated_At = -1;
 
     public void setTitle(String title) {
         this.title = title;
@@ -122,4 +117,5 @@ public class TodoData {
     public long getUpdated_At() {
         return updated_At;
     }
+
 }

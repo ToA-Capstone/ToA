@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.shashank.sony.fancytoastlib.FancyToast;
@@ -48,7 +47,6 @@ public class TestFragment extends ToaFragment {
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToaApi.getInstance().getDatabaseManager().test();
             }
         });
         return root;

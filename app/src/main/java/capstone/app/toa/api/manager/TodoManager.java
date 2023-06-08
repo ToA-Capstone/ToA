@@ -1,54 +1,49 @@
 package capstone.app.toa.api.manager;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.UUID;
+import com.google.firebase.database.DatabaseReference;
 
-import capstone.app.toa.api.data.TodoData;
-import capstone.app.toa.api.listener.TodoRefreshListener;
+import java.util.ArrayList;
+
+import capstone.app.toa.api.ToaApi;
+import capstone.app.toa.api.object.Todo;
 
 public class TodoManager {
 
-    private ArrayList<TodoData> list = new ArrayList<>();
+    private static ToaApi api = ToaApi.getInstance();
 
-    public ArrayList<TodoData> getList() {
+    private DatabaseReference reference;
+
+    public void setReference(DatabaseReference reference) {
+        this.reference = reference;
+    }
+    public DatabaseReference getReference() {
+        if (reference == null) {
+            reference = api.getDatabaseManager().getUserReference().child("todos");
+        }
+        return reference;
+    }
+
+    private ArrayList<Todo> list = new ArrayList<>();
+
+    public ArrayList<Todo> toList() {
         return list;
     }
 
-    public void add(TodoData data) {
-        if (data.getUUID() == null) {
-            data.setUUID(UUID.randomUUID());
-        }
-        list.add(data);
+    public void add(Todo todo) {
+        list.add(todo);
     }
-    public boolean remove(TodoData data) {
-        return list.remove(data);
+    public void add(int index, Todo todo) {
+        list.add(index, todo);
     }
-    public boolean remove(UUID id) {
-        for (TodoData data : list) {
-            if (data.getUUID().equals(id)) {
-                return list.remove(data);
-            }
-        }
-        return false;
+    public void set(int index, Todo todo) {
+        list.set(index, todo);
     }
-    public TodoData get(UUID uuid) {
-        for (TodoData data : list) {
-            if (data.getUUID().equals(uuid)) {
-                return data;
-            }
-        }
-        return null;
+    public boolean remove(Todo todo) {
+        return list.remove(todo);
     }
 
-    private HashSet<TodoRefreshListener> listeners = new HashSet<>();
-
-    public HashSet<TodoRefreshListener> getListeners() {
-        return listeners;
-    }
-
-    public void registerListener(TodoRefreshListener listener) {
-        listeners.add(listener);
+    public void update() {
+        getReference().setValue(list);
     }
 
 }

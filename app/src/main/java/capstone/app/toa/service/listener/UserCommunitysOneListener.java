@@ -20,11 +20,11 @@ public class UserCommunitysOneListener extends CustomValueEventListener {
         ArrayList<String> list = snapshot.getValue(typeIndicator);
 
         if (list != null) {
-            api.getUser().getCommunitys().clear();
-            api.getUser().getCommunitys().addAll(list);
+            api.getUserManager().getCommunitys().clear();
+            api.getUserManager().getCommunitys().addAll(list);
 
-            for (String name : api.getUser().getCommunitys()) {
-                api.getDatabase().getCommunityReference(name).addListenerForSingleValueEvent(new ValueEventListener() {
+            for (String name : api.getUserManager().getCommunitys()) {
+                api.getDatabaseManager().getCommunityReference().addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.exists()) {

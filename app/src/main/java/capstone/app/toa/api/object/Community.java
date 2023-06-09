@@ -19,7 +19,7 @@ public class Community {
     public Community(String name) {
         this.name = name;
 
-        db = api.getDatabase().getCommunityReference(name);
+        db = api.getDatabaseManager().getCommunityReference();
 
         CustomValueEventListener listener = new CommunityOwnerChangeListener(this);
         listeners.put(name + "_owner", listener);
@@ -118,7 +118,7 @@ public class Community {
     private static transient HashMap<String, CustomValueEventListener> listeners = new HashMap<>();
 
     public void delete() {
-        DatabaseReference db = api.getDatabase().getCommunityReference(name);
+        DatabaseReference db = api.getDatabaseManager().getCommunityReference();
         db.child("owner").removeEventListener(listeners.get(name + "_owner"));
         db.child("todos").removeEventListener(listeners.get(name + "_todos"));
         db.child("users").removeEventListener(listeners.get(name + "_users"));

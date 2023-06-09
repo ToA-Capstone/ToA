@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".alert_addlist"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,6 +23,7 @@
             android:gravity="right">
 
             <EditText
+                android:id="@+id/editTitle_alert"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="제목을 입력하시오" />
@@ -41,6 +41,7 @@
             android:textStyle="bold"
             android:layout_marginHorizontal="20dp"/>
         <EditText
+            android:id="@+id/input_Todo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="내용을 입력하시오"

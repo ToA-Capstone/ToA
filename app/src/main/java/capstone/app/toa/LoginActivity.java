@@ -75,7 +75,10 @@ public class LoginActivity extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
+                startLogin = false;
             }
+        } else {
+            startLogin = false;
         }
     }
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
@@ -88,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                     openUI();
                 } else {
                     FancyToast.makeText(LoginActivity.this, "로그인 실패", FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show();
+                    startLogin = false;
                 }
             }
         });

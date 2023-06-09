@@ -11,9 +11,9 @@ import capstone.app.toa.api.listener.CustomValueEventListener;
 import capstone.app.toa.api.object.Community;
 import capstone.app.toa.api.object.Todo;
 
-public class CommunityTodoChangeListener extends CustomValueEventListener {
+public class CommunityTodosChangeListener extends CustomValueEventListener {
 
-    public CommunityTodoChangeListener(Community community) {
+    public CommunityTodosChangeListener(Community community) {
         this.community = community;
     }
 

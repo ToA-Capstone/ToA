@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import capstone.app.toa.api.listener.CustomValueEventListener;
 import capstone.app.toa.api.object.Todo;
 
-public class UserTodoChangeListener extends CustomValueEventListener {
+public class UserTodosChangeListener extends CustomValueEventListener {
 
     @Override
     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -20,6 +20,7 @@ public class UserTodoChangeListener extends CustomValueEventListener {
         if (list != null) {
             api.getTodoManager().toList().clear();
             api.getTodoManager().toList().addAll(list);
+            onChanged();
         }
     }
 

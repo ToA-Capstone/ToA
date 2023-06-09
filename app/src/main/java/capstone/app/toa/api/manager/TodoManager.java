@@ -9,20 +9,6 @@ import capstone.app.toa.api.object.Todo;
 
 public class TodoManager {
 
-    private static ToaApi api = ToaApi.getInstance();
-
-    private DatabaseReference reference;
-
-    public void setReference(DatabaseReference reference) {
-        this.reference = reference;
-    }
-    public DatabaseReference getReference() {
-        if (reference == null) {
-            reference = api.getDatabaseManager().getUserReference().child("todos");
-        }
-        return reference;
-    }
-
     private ArrayList<Todo> list = new ArrayList<>();
 
     public ArrayList<Todo> toList() {
@@ -31,26 +17,15 @@ public class TodoManager {
 
     public void add(Todo todo) {
         list.add(todo);
-        updateDB();
     }
     public void add(int index, Todo todo) {
         list.add(index, todo);
-        updateDB();
     }
     public void set(int index, Todo todo) {
         list.set(index, todo);
-        updateDB();
     }
     public boolean remove(Todo todo) {
-        boolean result = list.remove(todo);
-        if (result) {
-            updateDB();
-        }
-        return result;
-    }
-
-    public void updateDB() {
-        getReference().setValue(list);
+        return list.remove(todo);
     }
 
 }

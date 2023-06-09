@@ -7,23 +7,14 @@ import com.google.firebase.database.DatabaseReference;
 import java.util.ArrayList;
 
 import capstone.app.toa.api.ToaApi;
+import capstone.app.toa.api.listener.CustomValueEventListener;
+import capstone.app.toa.service.listener.UserCommunitysChangeListener;
+import capstone.app.toa.service.listener.UserFriendsChangeListener;
 
 public class UserManager {
 
     private static ToaApi api = ToaApi.getInstance();
     private FirebaseAuth auth;
-
-    private DatabaseReference friendReference, communityReference;
-
-    public DatabaseReference getFriendReference() {
-        if (friendReference == null) {
-//            friendReference = api.getDatabaseManager().getUserReference()
-        }
-        return friendReference;
-    }
-    public DatabaseReference getCommunityReference() {
-        return communityReference;
-    }
 
     /**
      * FirebaseAuth Instance를 가져옴

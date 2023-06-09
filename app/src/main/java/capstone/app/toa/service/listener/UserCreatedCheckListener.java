@@ -8,17 +8,21 @@ import capstone.app.toa.api.listener.CustomValueEventListener;
 
 public class UserCreatedCheckListener extends CustomValueEventListener {
 
+    private boolean changed = false;
+
+    public void setChanged(boolean changed) {
+        this.changed = changed;
+    }
+
     @Override
     public void onDataChange(@NonNull DataSnapshot snapshot) {
         Long created_at = snapshot.getValue(Long.class);
 
-        boolean changed = false;
-
-        if (created_at == null || created_at < 0) {
+        if (!changed && (created_at == null || created_at < 0)) {
             api.getDatabaseManager().getUserReference().child("created_at").setValue(System.currentTimeMillis());
             changed = true;
+            onChanged();
         }
-
 
     }
 

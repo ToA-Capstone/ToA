@@ -1,6 +1,5 @@
 package capstone.app.toa.ui.home;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.GestureDetector;
@@ -12,23 +11,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-
-import com.shashank.sony.fancytoastlib.FancyToast;
 
 import java.util.ArrayList;
 
-import capstone.app.toa.LoginActivity;
 import capstone.app.toa.R;
 import capstone.app.toa.api.fragment.ToaFragment;
 import capstone.app.toa.databinding.FragmentHomeBinding;
 import capstone.app.toa.api.object.Todo;
-import capstone.app.toa.service.listener.UserTodoChangeListener;
 
 public class HomeFragment extends ToaFragment implements GestureDetector.OnGestureListener {
 
@@ -44,7 +36,6 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
     private TextView title_todo;
     private String title, text;
     private Todo todo;
-    private UserTodoChangeListener userTodoChangeListener;
     private ArrayList<Todo> Todo_input;
 
     public View onCreateView(@NonNull LayoutInflater inflater,

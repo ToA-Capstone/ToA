@@ -88,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     FancyToast.makeText(LoginActivity.this, "로그인 성공", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show();
+                    api.init();
                     openUI();
                 } else {
                     FancyToast.makeText(LoginActivity.this, "로그인 실패", FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show();

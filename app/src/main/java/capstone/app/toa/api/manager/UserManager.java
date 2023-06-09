@@ -13,7 +13,6 @@ import capstone.app.toa.service.listener.UserFriendsChangeListener;
 
 public class UserManager {
 
-    private static ToaApi api = ToaApi.getInstance();
     private FirebaseAuth auth;
 
     /**
@@ -29,9 +28,21 @@ public class UserManager {
     }
 
     private ArrayList<String> friends = new ArrayList<>();
+    private ArrayList<String> communitys = new ArrayList<>();
 
+    /**
+     * 사용자의 Friend 리스트을 가져옵니다.
+     * @return User Friend List
+     */
     public ArrayList<String> getFriends() {
         return friends;
+    }
+    /**
+     * 사용자의 Community 리스트를 불러옵니다.
+     * @return User Community List
+     */
+    public ArrayList<String> getCommunitys() {
+        return communitys;
     }
 
     /**
@@ -44,10 +55,8 @@ public class UserManager {
             return false;
         }
         friends.add(uid);
-        updateCommunitys();
         return true;
     }
-
     /**
      * 친구 목록에서 친구를 제거합니다.
      * @param uid User Uid
@@ -56,15 +65,10 @@ public class UserManager {
     public boolean removeFriend(String uid) {
         if (existsFriend(uid)) {
             friends.remove(uid);
-            updateCommunitys();
             return true;
         }
         return false;
     }
-    public void updateFriends() {
-//        api.getDatabase().getUserFriendsReference().setValue(friends);
-    }
-
     /**
      * 친구 목록에서 친구가 있는지 확인합니다.
      * @param uid User Uid
@@ -72,12 +76,6 @@ public class UserManager {
      */
     public boolean existsFriend(String uid) {
         return friends.contains(uid);
-    }
-
-    private ArrayList<String> communitys = new ArrayList<>();
-
-    public ArrayList<String> getCommunitys() {
-        return communitys;
     }
 
     /**
@@ -90,10 +88,8 @@ public class UserManager {
             return false;
         }
         communitys.add(name);
-        updateCommunitys();
         return true;
     }
-
     /**
      * 유저의 커뮤니티 목록에서 해당 이름의 커뮤니티를 제거합니다.
      * @param name 커뮤니티 이름
@@ -102,16 +98,10 @@ public class UserManager {
     public boolean removeCommunity(String name) {
         if (existsCommunity(name)) {
             communitys.remove(name);
-            updateCommunitys();
             return true;
         }
         return false;
     }
-
-    public void updateCommunitys() {
-//        api.getDatabase().getUserCommunitysReference().setValue(communitys);
-    }
-
     /**
      * 유저의 커뮤니티 목록에서 해당 이름의 커뮤니티가 있는지 확인합니다.
      * @param name 커뮤니티 이름
@@ -120,7 +110,6 @@ public class UserManager {
     public boolean existsCommunity(String name) {
         return communitys.contains(name);
     }
-
     /**
      * FirebaseAuth에서 FirebaseUser를 가져옴
      * @return 로그인일 경우 FirebaseUser, 로그아웃일 경우 null
@@ -128,7 +117,6 @@ public class UserManager {
     public FirebaseUser get() {
         return getAuth().getCurrentUser();
     }
-
     /**
      * Firebase에 등록된 Google 계정의 Uid를 가져옴
      * @return 로그인일 경우 Uid, 로그아웃일 경우 null

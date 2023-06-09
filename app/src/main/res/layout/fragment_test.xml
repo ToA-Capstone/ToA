@@ -93,7 +93,7 @@
                 android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="로그아웃"
+                android:text="종료"
                 android:id="@+id/firebase_test"
                 android:textSize="12sp">
             </Button>

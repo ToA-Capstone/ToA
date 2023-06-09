@@ -4,12 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.DrawerActivity.AppBarOverlay">
+        android:layout_height="56dp"
+        android:theme="@style/Theme.DrawerActivity.AppBarOverlay"
+        app:layout_anchor="@+id/appBarLayout"
+        app:layout_anchorGravity="center">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -17,6 +21,14 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@drawable/tool_bar"
             app:popupTheme="@style/Theme.DrawerActivity.PopupOverlay" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="347dp"
+            android:layout_marginTop="-56dp"
+            android:background="@drawable/friend" />
+
 
     </com.google.android.material.appbar.AppBarLayout>
 

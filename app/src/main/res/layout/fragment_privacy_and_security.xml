@@ -31,6 +31,7 @@
 
             <!-- 본인 이름  !-->
             <TextView
+                android:id="@+id/fragment_privacy_and_security_textview_myname"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"
@@ -57,6 +58,7 @@
 
             <!-- 본인 이메일  !-->
             <TextView
+                android:id="@+id/fragment_privacy_and_security_textview_myemail"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"
@@ -82,8 +84,9 @@
                 android:text="아이디"
                 android:textSize="25sp"></TextView>
 
-            <!-- 본인 이메일  !-->
+            <!-- 본인 아이디  !-->
             <TextView
+                android:id="@+id/fragment_privacy_and_security_textview_myid"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"

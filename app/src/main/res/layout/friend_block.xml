@@ -11,7 +11,7 @@
         android:layout_height="40dp"
         android:layout_gravity="center"
         android:layout_marginTop="180dp"
-        android:background="#AE84E8"
+        android:background="#A9C499EA"
         android:orientation="horizontal">
 
         <!-- 체크박스!-->

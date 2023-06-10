@@ -24,9 +24,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Todo+α"
+            android:text=" TodoList+α "
             android:textSize="30dp"
-            android:textColor="#AC58FA"
+            android:background="@drawable/border_color"
             android:layout_marginTop="5dp"
             android:layout_gravity="center">
         </TextView>

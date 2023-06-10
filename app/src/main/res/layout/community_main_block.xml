@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="340dp"
+        android:layout_height="160dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(커뮤니티 이름)"
+                android:textSize="25sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="330dp"
+            android:layout_height="wrap_content">
+            <!-- 커뮤니티 블럭1!-->
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="중요 일정"
+                        android:textSize="20dp" />
+                    <Button
+                        android:id="@+id/community_main_block_addbutton1"
+                        android:layout_marginLeft="30dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:text="+" />
+                </LinearLayout>
+
+                <!-- 기한 텍스트!-->
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="(기한)" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 커뮤니티 블럭2!-->
+            <LinearLayout
+                android:layout_marginLeft="30dp"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="중요 일정"
+                        android:textSize="20dp" />
+                    <Button
+                        android:id="@+id/community_main_block_addbutton2"
+                        android:layout_marginLeft="30dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:text="+" />
+                </LinearLayout>
+
+                <!-- 기한 텍스트!-->
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="(기한)" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

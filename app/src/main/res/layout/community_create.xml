@@ -11,7 +11,7 @@
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:layout_marginTop="180dp"
-        android:background="#A9C499EA"
+        android:background="#AE84E8"
         android:orientation="vertical">
 
         <!-- 커뮤니티 생성하기!-->

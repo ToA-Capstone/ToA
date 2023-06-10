@@ -14,10 +14,13 @@
             android:title="커뮤니티" />
         <item
             android:id="@+id/nav_createcommunity"
-            android:title=" - 커뮤니티 생성" />
+            android:title=" - 생성" />
         <item
-            android:id="@+id/nav_deletecommunity"
-            android:title=" - 커뮤니티 삭제" />
+            android:id="@+id/nav_managementcommunity"
+            android:title=" - 관리" />
+        <item
+            android:id="@+id/nav_schedulemanagementcommunity"
+            android:title=" - 일정관리" />
         <item
             android:id="@+id/nav_privacy_and_security"
             android:icon="@drawable/lock"

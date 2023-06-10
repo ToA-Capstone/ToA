@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/community_manager"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="180dp"
+        android:orientation="horizontal">
+
+        <!-- 이미지!-->
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/profile" />
+
+        <!-- 친구 이름!-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:gravity="center"
+            android:text="친구이름"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <!-- 관리자!-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="관리자"
+            android:background="@drawable/resource_file"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/minusfriend"/>
+
+
+
+    </LinearLayout>
+</LinearLayout>

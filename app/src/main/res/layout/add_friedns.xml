@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_marginTop="100dp"
-        android:layout_width="400dp"
+        android:layout_width="370dp"
         android:layout_height="530dp"
         android:background="#A9C499EA"
         android:layout_gravity="center"
@@ -23,7 +23,7 @@
 
             <EditText
                 android:id="@+id/addFriend_Edittext_search"
-                android:layout_width="280dp"
+                android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
@@ -61,7 +61,7 @@
                 android:id="@+id/addFriend_Button_add"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="260dp"
+                android:layout_marginLeft="230dp"
                 android:background="@drawable/plusfriend" />
         </LinearLayout>
 
@@ -71,7 +71,7 @@
             <!-- 검색 결과 리스트뷰!-->
             <LinearLayout
                 android:id="@+id/addFriend_LinearLayout_searchview"
-                android:layout_width="360dp"
+                android:layout_width="330dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="20dp"
@@ -100,7 +100,7 @@
                 android:id="@+id/addFriend_Button_minus"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="260dp"
+                android:layout_marginLeft="230dp"
                 android:background="@drawable/minusfriend" />
         </LinearLayout>
 
@@ -111,7 +111,7 @@
         <ListView
             android:id="@+id/addFriend_Listview_friendview"
             android:layout_marginLeft="20dp"
-            android:layout_width="360dp"
+            android:layout_width="330dp"
             android:layout_height="200dp"
             android:background="#FFFFFF"
             android:gravity="center"

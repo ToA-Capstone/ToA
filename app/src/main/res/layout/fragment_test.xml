@@ -75,7 +75,7 @@
             android:gravity="center"
             android:layout_marginLeft="40dp">
             <Button
-                android:layout_width="340dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="로그아웃"
@@ -92,7 +92,7 @@
             android:gravity="center"
             android:layout_marginLeft="40dp">
             <Button
-                android:layout_width="340dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="종료"

@@ -39,6 +39,7 @@
         android:text="설명"
         android:gravity="top"/>
     <TextView
+        android:id="@+id/todo_deadline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="남은시간출력"

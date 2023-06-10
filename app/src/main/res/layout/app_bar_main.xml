@@ -23,11 +23,12 @@
             app:popupTheme="@style/Theme.DrawerActivity.PopupOverlay" />
 
         <Button
+            android:id="@+id/app_bar_main_Button_friend"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="347dp"
-            android:layout_marginTop="-56dp"
-            android:background="@drawable/friend" />
+            android:layout_marginLeft="359dp"
+            android:layout_marginTop="-51dp"
+            android:background="@drawable/friends" />
 
 
     </com.google.android.material.appbar.AppBarLayout>

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#A9C499EA">
 
     <!-- 프로필 !-->
     <LinearLayout
@@ -49,14 +50,7 @@
             android:layout_height="wrap_content">
         </EditText>
 
-        <!-- 이름 수정 버튼 !-->
-        <Button
-            android:id="@+id/profile_button_name"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:textSize="8sp"
-            android:background="@drawable/correction">
-        </Button>
+
     </LinearLayout>
 
     <LinearLayout
@@ -75,14 +69,6 @@
             android:layout_height="wrap_content">
          </EditText>
 
-        <!-- 아이디 수정 버튼 !-->
-        <Button
-            android:id="@+id/profile_button_id"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:textSize="8sp"
-            android:background="@drawable/correction">
-        </Button>
     </LinearLayout>
 
     <LinearLayout
@@ -100,23 +86,6 @@
               android:layout_height="wrap_content">
          </EditText>
 
-        <!-- 이메일 수정 버튼 !-->
-        <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:textSize="8sp"
-            android:id="@+id/profile_button_email"
-            android:background="@drawable/correction">
-        </Button>
     </LinearLayout>
 
-         <!-- 비빌번호 변경 !-->
-         <Button
-             android:layout_marginTop="15dp"
-             android:layout_marginBottom="150dp"
-             android:id="@+id/profile_button_changpassword"
-             android:text="비밀번호 변경"
-             android:layout_gravity="center"
-             android:layout_width="170dp"
-             android:layout_height="50dp"></Button>
     </LinearLayout>

@@ -13,6 +13,12 @@
             android:icon="@drawable/speech_bubble"
             android:title="커뮤니티" />
         <item
+            android:id="@+id/nav_createcommunity"
+            android:title=" - 커뮤니티 생성" />
+        <item
+            android:id="@+id/nav_deletecommunity"
+            android:title=" - 커뮤니티 삭제" />
+        <item
             android:id="@+id/nav_privacy_and_security"
             android:icon="@drawable/lock"
             android:title="개인정보 및 보안" />

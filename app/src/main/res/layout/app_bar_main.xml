@@ -9,7 +9,7 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
-        android:layout_width="412dp"
+        android:layout_width="382dp"
         android:layout_height="56dp"
         android:theme="@style/Theme.DrawerActivity.AppBarOverlay"
         app:layout_anchor="@+id/appBarLayout"
@@ -26,7 +26,7 @@
             android:id="@+id/app_bar_main_Button_friend"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="360dp"
+            android:layout_marginLeft="330dp"
             android:layout_marginTop="-54dp"
             android:background="@drawable/friends" />
 

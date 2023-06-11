@@ -35,7 +35,8 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
     private GestureDetector gestureDetector;
     private Button button_add;
     private LinearLayout layout_list, layout_required;
-    private View todo_required, alert_addlist;
+    private TextView required_title, required_text;
+    private View todo_required1,todo_required2, alert_addlist;
     private ArrayList<View> todo_widget;
 
     private EditText editTitle_alert,inputtodo;
@@ -64,6 +65,21 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
         button_add = binding.ButtonAdd;
         layout_list = binding.LayoutList;
         layout_required = binding.layoutRequired;
+
+        //추천list(정적)
+        todo_required1=View.inflate(getActivity(),R.layout.todo_required,null);
+        required_text=todo_required1.findViewById(R.id.required_text);
+        required_title=todo_required1.findViewById(R.id.required_title);
+        required_title.setText("캡스톤보고서");
+        required_text.setText("보고서 작성\n설문조사 작성");
+        layout_required.addView(todo_required1);
+
+        todo_required2=View.inflate(getActivity(),R.layout.todo_required,null);
+        required_text=todo_required2.findViewById(R.id.required_text);
+        required_title=todo_required2.findViewById(R.id.required_title);
+        required_title.setText("캡스톤 발표");
+        required_text.setText("ppt 만들기\n대본만들기");
+        layout_required.addView(todo_required2);
 
         gestureDetector = new GestureDetector(getContext(), this);
 

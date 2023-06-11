@@ -13,7 +13,8 @@
             android:layout_height="match_parent"
             android:text="제목"
             android:textSize="20dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:id="@+id/required_title"/>
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -27,6 +28,7 @@
         </LinearLayout>
     </LinearLayout>
     <TextView
+        android:id="@+id/required_text"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="(커뮤니티)"

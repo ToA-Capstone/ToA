@@ -16,10 +16,8 @@ public class PrivacyAndSecurityFragment extends ToaFragment {
 
     private FragmentPrivacyAndSecurityBinding binding;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        PrivacyAndSecurityViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(PrivacyAndSecurityViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        PrivacyAndSecurityViewModel slideshowViewModel = new ViewModelProvider(this).get(PrivacyAndSecurityViewModel.class);
 
         binding = FragmentPrivacyAndSecurityBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

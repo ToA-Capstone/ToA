@@ -35,12 +35,14 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
     private GestureDetector gestureDetector;
     private Button button_add;
     private LinearLayout layout_list, layout_required;
-    private View todo_widget, todo_required, alert_addlist;
+    private View todo_required, alert_addlist;
+    private ArrayList<View> todo_widget;
 
     private EditText editTitle_alert,inputtodo;
     private EditText text_todo;
     private TextView title_todo, textview_deadline, todo_deadline;
-    private Button button_deadline;
+    private Button button_deadline, button_del;
+    private TextView index_todo;
     private String title, text;
     private Todo todo;
     private ArrayList<Todo> Todo_input;
@@ -55,9 +57,7 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
     private long timeCombinedValue;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
@@ -91,10 +91,12 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
                 });
 
                 //Todo리스트 출력 View
-                todo_widget=View.inflate(getActivity(),R.layout.todo_widget,null);
-                text_todo=todo_widget.findViewById(R.id.Text_todo);
-                title_todo=todo_widget.findViewById(R.id.Title_todo);
-                todo_deadline=todo_widget.findViewById(R.id.todo_deadline);
+                todo_widget.add(View.inflate(getActivity(),R.layout.todo_widget,null)); //nullpointerexception ㅠㅠㅠㅠㅠ
+                text_todo=todo_widget.get(todo_widget.size()-1).findViewById(R.id.Text_todo);
+                title_todo=todo_widget.get(todo_widget.size()-1).findViewById(R.id.Title_todo);
+                todo_deadline=todo_widget.get(todo_widget.size()-1).findViewById(R.id.todo_deadline);
+                button_del=todo_widget.get(todo_widget.size()-1).findViewById(R.id.button_trash_can);
+                index_todo=todo_widget.get(todo_widget.size()-1).findViewById(R.id.index_todo);
 
                 AlertDialog.Builder addAlert=new AlertDialog.Builder(getActivity());
                 addAlert.setView(alert_addlist);
@@ -149,6 +151,15 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
                         deadline_date.show();
                     }
                 });
+                button_del.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //index Textview에서 가져온 값으로 삭제처리
+                        int index=Integer.parseInt(index_todo.getText().toString());
+                        api.getTodoManager().remove(api.getTodoManager().toList().get(index));
+                        layout_list.removeView(todo_widget.get(index));
+                    }
+                });
 
                 addAlert.setPositiveButton("추가", new DialogInterface.OnClickListener() {
                     @Override
@@ -179,7 +190,7 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
 
                         text_todo.setText(text);
                         title_todo.setText(title);
-
+                        index_todo.setText(Todo_input.size()-1);
                         todo_deadline.setText(
                                 selectYear+"년 "+
                                 selectMonth+"월 "+
@@ -189,7 +200,7 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
                         );
 
                         //Todo View 생성
-                        layout_list.addView(todo_widget);
+                        layout_list.addView(todo_widget.get(todo_widget.size()-1));
                     }
                 });
                 addAlert.setNegativeButton("취소",new DialogInterface.OnClickListener() {

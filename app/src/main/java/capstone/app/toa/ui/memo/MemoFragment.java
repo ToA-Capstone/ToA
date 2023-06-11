@@ -17,10 +17,8 @@ public class MemoFragment extends ToaFragment {
 
     private FragmentMemoBinding binding;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        MemoViewModel memoViewModel =
-                new ViewModelProvider(this).get(MemoViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        MemoViewModel memoViewModel = new ViewModelProvider(this).get(MemoViewModel.class);
 
         binding = FragmentMemoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

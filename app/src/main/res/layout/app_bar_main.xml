@@ -24,10 +24,10 @@
 
         <Button
             android:id="@+id/app_bar_main_Button_friend"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="330dp"
-            android:layout_marginTop="-54dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="340dp"
+            android:layout_marginTop="-50dp"
             android:background="@drawable/friends" />
 
 

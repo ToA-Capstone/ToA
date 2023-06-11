@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import capstone.app.toa.api.listener.CustomValueEventListener;
 import capstone.app.toa.api.object.Todo;
+import capstone.app.toa.ui.home.HomeFragment;
 
 public class UserTodosChangeListener extends CustomValueEventListener {
 
@@ -28,7 +29,8 @@ public class UserTodosChangeListener extends CustomValueEventListener {
      * 데이터가 바뀐 뒤 실행되는 메소드
      */
     public void onChanged() {
-
+        HomeFragment.resetTodo();
+        HomeFragment.updateTodo();
     }
 
 }

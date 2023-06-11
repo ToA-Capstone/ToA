@@ -20,18 +20,18 @@ public class DatabaseManager {
 
     private static ToaApi api = ToaApi.getInstance();
 
-    private FirebaseDatabase database = FirebaseDatabase.getInstance("https://toa-capstone-990b0-default-rtdb.asia-southeast1.firebasedatabase.app");
-    private DatabaseReference userReference,
+    private static FirebaseDatabase database = FirebaseDatabase.getInstance("https://toa-capstone-990b0-default-rtdb.asia-southeast1.firebasedatabase.app");
+    private static DatabaseReference userReference,
                                 communityReference,
                                 userFriendsReference,
                                 userCommunitysReference,
                                 userTodosReference;
 
-    private CustomValueEventListener userFriendsChangeListener,
+    private static CustomValueEventListener userFriendsChangeListener,
                                         userCommunitysChangeListener,
                                         userTodosChangeListener;
 
-    private HashMap<String, CustomValueEventListener> listeners = new HashMap<>();
+    private static HashMap<String, CustomValueEventListener> listeners = new HashMap<>();
 
     /**
      * DatabaseManager를 세팅합니다.
@@ -40,15 +40,15 @@ public class DatabaseManager {
         checkCreated_At();
 
         if (userFriendsReference == null) {
-            userFriendsReference = api.getDatabaseManager().getUserReference().child("friends");
+            userFriendsReference = getUserReference().child("friends");
             userFriendsReference.addValueEventListener(userFriendsChangeListener = new UserFriendsChangeListener());
         }
         if (userCommunitysReference == null) {
-            userCommunitysReference = api.getDatabaseManager().getUserReference().child("communitys");
+            userCommunitysReference = getUserReference().child("communitys");
             userCommunitysReference.addValueEventListener(userCommunitysChangeListener = new UserCommunitysChangeListener());
         }
         if (userTodosReference == null) {
-            userTodosReference = api.getDatabaseManager().getUserReference().child("todos");
+            userTodosReference = getUserReference().child("todos");
             userTodosReference.addValueEventListener(userTodosChangeListener = new UserTodosChangeListener());
         }
     }
@@ -62,6 +62,8 @@ public class DatabaseManager {
         userCommunitysReference = null;
         userTodosReference.removeEventListener(userTodosChangeListener);
         userTodosReference = null;
+
+        userReference = null;
 
         for (Community community : api.getCommunityManager().toMap().values()) {
             teardownCommunity(community);
@@ -78,7 +80,7 @@ public class DatabaseManager {
      */
     public DatabaseReference getUserReference() {
         if (userReference == null) {
-            userReference = database.getReference("users");
+            userReference = database.getReference("users").child(api.getUserManager().getUid());
         }
         return userReference;
     }

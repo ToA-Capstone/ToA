@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 public class Community {
 
+    public Community() {
+        todos = new ArrayList<>();
+        users = new ArrayList<>();
+    }
+
     // 커뮤니티 이름
     private String name;
 
@@ -14,10 +19,10 @@ public class Community {
     private String owner = null;
 
     // 커뮤니티 TodoList
-    private ArrayList<Todo> todos = new ArrayList<>();
+    private ArrayList<Todo> todos;
 
     // 커뮤니티에 소속된 유저들 Uid
-    private ArrayList<String> users = new ArrayList<>();
+    private ArrayList<String> users;
 
     public void setName(String name) {
         this.name = name;

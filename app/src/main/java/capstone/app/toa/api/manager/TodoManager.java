@@ -2,11 +2,14 @@ package capstone.app.toa.api.manager;
 
 import java.util.ArrayList;
 
+import capstone.app.toa.api.ToaApi;
 import capstone.app.toa.api.object.Todo;
 
 public class TodoManager {
 
-    private ArrayList<Todo> list = new ArrayList<>();
+    private static ToaApi api = ToaApi.getInstance();
+
+    private static ArrayList<Todo> list = new ArrayList<>();
 
     /**
      * 사용자의 Todo 리스트를 가져옵니다.
@@ -48,7 +51,16 @@ public class TodoManager {
      * @return Todo가 삭제되었다면 True, 안되었다면 False
      */
     public boolean remove(Todo todo) {
-        return list.remove(todo);
+        boolean result = list.remove(todo);
+        return result;
     }
 
+    /**
+     * Todo리스트의 index 칸의 데이터를 가져옵니다.
+     * @param index index
+     * @return Todo리스트 index칸의 데이터
+     */
+    public Todo get(int index) {
+        return list.get(index);
+    }
 }

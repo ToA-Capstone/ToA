@@ -6,6 +6,6 @@ import capstone.app.toa.api.ToaApi;
 
 public class ToaFragment extends Fragment {
 
-    protected ToaApi api = ToaApi.getInstance();
+    protected static ToaApi api = ToaApi.getInstance();
 
 }

@@ -1,7 +1,5 @@
 package capstone.app.toa.api.object;
 
-import capstone.app.toa.api.ToaApi;
-
 public class Todo {
 
     // 순서대로 제목, 내용, 제작 유저 (커뮤니티만), 삭제 유저 (커뮤니티만), 마지막 수정 유저 (커뮤니티만)

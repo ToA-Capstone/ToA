@@ -12,9 +12,12 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.shashank.sony.fancytoastlib.FancyToast;
 
+import java.util.Arrays;
+
 import capstone.app.toa.LoginActivity;
 import capstone.app.toa.api.ToaApi;
 import capstone.app.toa.api.fragment.ToaFragment;
+import capstone.app.toa.api.object.Todo;
 import capstone.app.toa.databinding.FragmentTestBinding;
 
 public class TestFragment extends ToaFragment {
@@ -33,6 +36,8 @@ public class TestFragment extends ToaFragment {
         logoutButton = binding.logoutButton;
         testButton = binding.firebaseTest;
 
+
+
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +53,13 @@ public class TestFragment extends ToaFragment {
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Todo todo = new Todo();
+
+                todo.setTitle("ㅁㄴㅇㄹ");
+                todo.setContent("asdfasdfadsfg");
+                todo.setEnded_At(System.currentTimeMillis() + 10000);
+                todo.setCreated_At(System.currentTimeMillis());
+                api.getTodoManager().add(todo);
             }
         });
         return root;

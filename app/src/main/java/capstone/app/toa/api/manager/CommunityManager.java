@@ -9,7 +9,7 @@ public class CommunityManager {
 
     private static ToaApi api = ToaApi.getInstance();
 
-    private HashMap<String, Community> map = new HashMap<>();
+    private static HashMap<String, Community> map = new HashMap<>();
 
     /**
      * 사용자가 속해있는 Community 데이터가 포함된 데이터를 가져옵니다.

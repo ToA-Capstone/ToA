@@ -15,22 +15,21 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="469dp">
+            android:layout_height="502dp">
             <!--할일추가 레이아웃-->
             <LinearLayout
                 android:id="@+id/Layout_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/Button_add"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+" />
-            </LinearLayout>
+                android:orientation="vertical"></LinearLayout>
         </ScrollView>
-
+        <Button
+            android:id="@+id/Button_add"
+            android:layout_gravity="right"
+            android:background="@drawable/plus"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+" />
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

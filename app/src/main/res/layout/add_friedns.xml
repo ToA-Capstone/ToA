@@ -23,7 +23,7 @@
 
             <EditText
                 android:id="@+id/addFriend_Edittext_search"
-                android:layout_width="230dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:gravity="center"

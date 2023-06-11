@@ -13,13 +13,13 @@
             android:icon="@drawable/speech_bubble"
             android:title="커뮤니티" />
         <item
-            android:id="@+id/nav_createcommunity"
+            android:id="@+id/nav_commu_create"
             android:title=" - 생성" />
         <item
-            android:id="@+id/nav_managementcommunity"
+            android:id="@+id/nav_commu_manage"
             android:title=" - 관리" />
         <item
-            android:id="@+id/nav_schedulemanagementcommunity"
+            android:id="@+id/nav_commu_sched"
             android:title=" - 일정관리" />
         <item
             android:id="@+id/nav_privacy_and_security"

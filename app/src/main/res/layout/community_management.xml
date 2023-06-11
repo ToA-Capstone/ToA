@@ -8,15 +8,14 @@
     android:orientation="vertical">
         <!-- 친구 목록!-->
     <LinearLayout
-        android:layout_width="330dp"
+        android:layout_width="match_parent"
         android:layout_height="674dp"
         android:orientation="vertical"
-        android:layout_marginTop="55dp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
         <ScrollView
-            android:layout_width="330dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
             <!--할일추가 레이아웃-->
             <LinearLayout

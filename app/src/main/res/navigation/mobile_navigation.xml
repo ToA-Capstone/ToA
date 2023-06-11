@@ -28,4 +28,22 @@
         android:name="capstone.app.toa.ui.test.TestFragment"
         android:label="Test"
         tools:layout="@layout/fragment_test" />
+
+    <fragment
+        android:id="@+id/nav_commu_create"
+        android:name="capstone.app.toa.ui.community.community_Create"
+        android:label="커뮤니티 생성"
+        tools:layout="@layout/community_create" />
+
+    <fragment
+        android:id="@+id/nav_commu_manage"
+        android:name="capstone.app.toa.ui.community.community_Management"
+        android:label="커뮤니티 관리"
+        tools:layout="@layout/community_choice"/>
+
+    <fragment
+        android:id="@+id/nav_commu_sched"
+        android:name="capstone.app.toa.ui.community.community_Schedule"
+        android:label="커뮤니티 일정관리"
+        tools:layout="@layout/community_management" />
 </navigation>

@@ -76,6 +76,20 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
                 button_deadline = alert_addlist.findViewById(R.id.button_deadLine);
                 textview_deadline = alert_addlist.findViewById(R.id.textview_deadline);
 
+                editTitle_alert.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        editTitle_alert.setText("");
+                    }
+                });
+
+                inputtodo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        inputtodo.setText("");
+                    }
+                });
+
                 //Todo리스트 출력 View
                 todo_widget=View.inflate(getActivity(),R.layout.todo_widget,null);
                 text_todo=todo_widget.findViewById(R.id.Text_todo);

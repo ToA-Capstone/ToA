@@ -26,7 +26,7 @@
                 android:id="@+id/editTitle_alert"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="제목을 입력하시오" />
+                android:hint="제목을 입력하시오" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -44,7 +44,7 @@
             android:id="@+id/input_Todo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="내용을 입력하시오"
+            android:hint="내용을 입력하시오"
             android:layout_marginHorizontal="30dp"/>
     </LinearLayout>
     <LinearLayout

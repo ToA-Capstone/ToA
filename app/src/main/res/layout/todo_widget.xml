@@ -22,8 +22,8 @@
             android:orientation="horizontal"
             android:gravity="right">
             <Button
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="27dp"
+                android:layout_height="25dp"
                 android:background="@drawable/alarm_on"/>
             <Button
                 android:layout_width="30dp"
@@ -53,21 +53,21 @@
         android:background="@drawable/border1">
         <Button
             android:id="@+id/button_share"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginLeft="80dp"
             android:background="@drawable/share" />
         <Button
             android:id="@+id/button_correction"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginLeft="90dp"
             android:background="@drawable/correction" />
 
         <Button
             android:id="@+id/button_trash_can"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginLeft="90dp"
             android:background="@drawable/trashcan" />
     </LinearLayout>

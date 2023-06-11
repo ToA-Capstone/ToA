@@ -51,14 +51,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border1">
-
         <Button
             android:id="@+id/button_share"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginLeft="80dp"
             android:background="@drawable/share" />
-
         <Button
             android:id="@+id/button_correction"
             android:layout_width="25dp"
@@ -72,7 +70,6 @@
             android:layout_height="25dp"
             android:layout_marginLeft="90dp"
             android:background="@drawable/trashcan" />
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

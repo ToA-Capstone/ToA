@@ -61,7 +61,6 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
         button_add = binding.ButtonAdd;
         layout_list = binding.LayoutList;
         layout_required = binding.layoutRequired;
@@ -205,6 +204,7 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
         }
         return false;
     }
+
     public boolean onDown(MotionEvent e){return false;}
     public void onShowPress(MotionEvent e){}
     public boolean onSingleTapUp(MotionEvent e){return false;}

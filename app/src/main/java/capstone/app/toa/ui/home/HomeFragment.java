@@ -81,7 +81,6 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
         required_text.setText("ppt 만들기\n대본만들기");
         layout_required.addView(todo_required2);
 
-
         layout_list = binding.LayoutList;
         activity = getActivity();
 
@@ -110,7 +109,7 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
                     }
                 });
 
-                AlertDialog.Builder addAlert=new AlertDialog.Builder(getActivity());
+                AlertDialog.Builder addAlert = new AlertDialog.Builder(getActivity());
                 addAlert.setView(alert_addlist);
 
                 //기한 설정 (TimePicker, DatePicker)
@@ -118,35 +117,44 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
                     @Override
                     public void onClick(View view) {
                         //날짜
-                        layout_deadline_date=View.inflate(getActivity(), R.layout.datepicker,null);
-                        AlertDialog.Builder deadline_date=new AlertDialog.Builder(getActivity());
-                        datePicker=layout_deadline_date.findViewById(R.id.datepicker);
+                        layout_deadline_date = View.inflate(getActivity(), R.layout.datepicker,null);
+                        AlertDialog.Builder deadline_date = new AlertDialog.Builder(getActivity());
+                        datePicker = layout_deadline_date.findViewById(R.id.datepicker);
                         deadline_date.setView(layout_deadline_date);
                         datePicker.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
                             @Override
                             public void onDateChanged(DatePicker datePicker, int year, int month, int day) {
-                                selectYear=year;
-                                selectMonth=month;
-                                selectDay=day;
+                                selectYear = year;
+                                selectMonth = month;
+                                selectDay = day;
                             }
                         });
                         deadline_date.setPositiveButton("다음", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //시간
-                                layout_deadline_time=View.inflate(getActivity(), R.layout.timepicker, null);
-                                AlertDialog.Builder deadline_time=new AlertDialog.Builder(getActivity());
-                                timePicker=layout_deadline_time.findViewById(R.id.timepicker);
+                                layout_deadline_time = View.inflate(getActivity(), R.layout.timepicker, null);
+                                AlertDialog.Builder deadline_time = new AlertDialog.Builder(getActivity());
+                                timePicker = layout_deadline_time.findViewById(R.id.timepicker);
                                 deadline_time.setView(layout_deadline_time);
                                 deadline_time.setPositiveButton("완료", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         Calendar calendar = Calendar.getInstance();
+                                        if (selectYear < 1) {
+                                            selectYear = calendar.get(Calendar.YEAR);
+                                        }
+                                        if (selectMonth < 1) {
+                                            selectMonth = calendar.get(Calendar.MONTH);
+                                        }
+                                        if (selectDay < 1) {
+                                            selectDay = calendar.get(Calendar.DAY_OF_MONTH);
+                                        }
 
                                         hour = timePicker.getCurrentHour();
                                         minute = timePicker.getCurrentMinute();
                                         textview_deadline.setText(selectYear + "년 " +
-                                                (selectMonth+1) + "월 " +
+                                                (selectMonth + 1) + "월 " +
                                                 selectDay + "일\n" +
                                                 hour + "시 " +
                                                 minute + "분");
@@ -225,6 +233,7 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
                         index_todo = view.findViewById(R.id.index_todo);
 
                 Button button_del = view.findViewById(R.id.button_trash_can);
+                Button button_cor = view.findViewById(R.id.button_correction);
 
                 Calendar calendar = Calendar.getInstance();
 
@@ -234,13 +243,11 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
                 content_todo.setText(todo.getContent());
                 index_todo.setText(String.valueOf(i));
 
-                todo_deadline.setText(
-                        calendar.get(Calendar.YEAR) + "년 " +
-                                (calendar.get(Calendar.MONTH) + 1) + "월 " +
-                                calendar.get(Calendar.DAY_OF_MONTH) + "일 " +
-                                calendar.get(Calendar.HOUR_OF_DAY) + "시 " +
-                                calendar.get(Calendar.MINUTE) + "분 까지"
-                );
+                todo_deadline.setText(calendar.get(Calendar.YEAR) + "년 " +
+                                    (calendar.get(Calendar.MONTH) + 1) + "월 " +
+                                    calendar.get(Calendar.DAY_OF_MONTH) + "일 " +
+                                    calendar.get(Calendar.HOUR_OF_DAY) + "시 " +
+                                    calendar.get(Calendar.MINUTE) + "분 까지");
 
                 //Todo View 생성
                 layout_list.addView(view);
@@ -253,8 +260,24 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
                         int index = Integer.parseInt(index_todo.getText().toString());
                         if (index < api.getTodoManager().toList().size()) {
                             api.getTodoManager().remove(api.getTodoManager().toList().get(index));
-                            api.getDatabaseManager().updateTodos();
+
+                            if (api.getTodoManager().toList().size() < 1) {
+                                resetTodo();
+                                updateTodo();
+                            }
                         }
+                    }
+                });
+                button_cor.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //index Textview에서 가져온 값으로 수정처리
+                        int index = Integer.parseInt(index_todo.getText().toString());
+
+                        Todo todo = api.getTodoManager().get(index);
+
+                        todo.setContent(content_todo.getText().toString());
+                        api.getDatabaseManager().updateTodos();
                     }
                 });
             }

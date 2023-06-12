@@ -57,7 +57,6 @@
                         android:id="@+id/layout_required"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:background="#63CDDF"
                         android:orientation="horizontal"></LinearLayout>
                 </HorizontalScrollView>
             </LinearLayout>

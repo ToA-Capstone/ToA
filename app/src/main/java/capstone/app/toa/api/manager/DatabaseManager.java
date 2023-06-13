@@ -13,31 +13,33 @@ import capstone.app.toa.listener.CommunityTodosChangeListener;
 import capstone.app.toa.listener.CommunityUsersChangeListener;
 import capstone.app.toa.listener.UserCommunitysChangeListener;
 import capstone.app.toa.listener.UserCreatedCheckListener;
+import capstone.app.toa.listener.UserDisplayNameCheckListener;
+import capstone.app.toa.listener.UserEmailCheckListener;
 import capstone.app.toa.listener.UserFriendsChangeListener;
 import capstone.app.toa.listener.UserTodosChangeListener;
 
 public class DatabaseManager {
 
-    private static ToaApi api = ToaApi.getInstance();
-
-    private static FirebaseDatabase database = FirebaseDatabase.getInstance("https://toa-capstone-990b0-default-rtdb.asia-southeast1.firebasedatabase.app");
-    private static DatabaseReference userReference,
+    private FirebaseDatabase database = FirebaseDatabase.getInstance("https://toa-capstone-990b0-default-rtdb.asia-southeast1.firebasedatabase.app");
+    private DatabaseReference userReference,
                                 communityReference,
                                 userFriendsReference,
                                 userCommunitysReference,
                                 userTodosReference;
 
-    private static CustomValueEventListener userFriendsChangeListener,
+    private CustomValueEventListener userFriendsChangeListener,
                                         userCommunitysChangeListener,
                                         userTodosChangeListener;
 
-    private static HashMap<String, CustomValueEventListener> listeners = new HashMap<>();
+    private HashMap<String, CustomValueEventListener> listeners = new HashMap<>();
 
     /**
      * DatabaseManager를 세팅합니다.
      */
     public void init() {
         checkCreated_At();
+        checkEamil();
+        checkDisplayName();
 
         if (userFriendsReference == null) {
             userFriendsReference = getUserReference().child("friends");
@@ -65,7 +67,7 @@ public class DatabaseManager {
 
         userReference = null;
 
-        for (Community community : api.getCommunityManager().toMap().values()) {
+        for (Community community : ToaApi.getCommunityManager().toMap().values()) {
             teardownCommunity(community);
         }
     }
@@ -73,14 +75,23 @@ public class DatabaseManager {
     public void checkCreated_At() {
         getUserReference().child("created_at").addListenerForSingleValueEvent(new UserCreatedCheckListener());
     }
+    public void checkEamil() {
+        getUserReference().child("email").addListenerForSingleValueEvent(new UserEmailCheckListener());
+    }
+    public void checkDisplayName() {
+        getUserReference().child("displayname").addListenerForSingleValueEvent(new UserDisplayNameCheckListener());
+    }
 
+    public DatabaseReference getReference(String name) {
+        return database.getReference(name);
+    }
     /**
      * 사용자 데이터 전부를 조작할 수 있는 Firebase DatabaseReference를 가져옵니다.
      * @return Users Firebase DataReference
      */
     public DatabaseReference getUserReference() {
         if (userReference == null) {
-            userReference = database.getReference("users").child(api.getUserManager().getUid());
+            userReference = database.getReference("users").child(ToaApi.getUserManager().getUid());
         }
         return userReference;
     }
@@ -155,19 +166,19 @@ public class DatabaseManager {
      * 사용자의 Friend 목록을 Firebase에 올립니다.
      */
     public void updateFriends() {
-        getUserFriendsReference().setValue(api.getUserManager().getFriends());
+        getUserFriendsReference().setValue(ToaApi.getUserManager().getFriends());
     }
     /**
      * 사용자의 Community 목록을 Firebase에 올립니다.
      */
     public void updateCommunitys() {
-        getUserCommunitysReference().setValue(api.getUserManager().getCommunitys());
+        getUserCommunitysReference().setValue(ToaApi.getUserManager().getCommunitys());
     }
     /**
      * 사용자의 Todo데이터가 담긴 리스트 데이터를 Firebase에 올립니다.
      */
     public void updateTodos() {
-        getUserTodosReference().setValue(api.getTodoManager().toList());
+        getUserTodosReference().setValue(ToaApi.getTodoManager().toList());
     }
 
     /**

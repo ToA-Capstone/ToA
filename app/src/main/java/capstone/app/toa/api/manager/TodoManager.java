@@ -7,9 +7,7 @@ import capstone.app.toa.api.object.Todo;
 
 public class TodoManager {
 
-    private static ToaApi api = ToaApi.getInstance();
-
-    private static ArrayList<Todo> list = new ArrayList<>();
+    private ArrayList<Todo> list = new ArrayList<>();
 
     /**
      * 사용자의 Todo 리스트를 가져옵니다.

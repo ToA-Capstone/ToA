@@ -21,8 +21,6 @@ import capstone.app.toa.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static ToaApi api = ToaApi.getInstance();
-
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     private Button button_friend;
@@ -31,13 +29,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (!api.getUserManager().isLogin()) {
+        if (!ToaApi.getUserManager().isLogin()) {
             Intent intent = new Intent(this, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             finish();
         }
-        api.init();
+        ToaApi.init();
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -57,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                                                 .build();
 
         TextView text = navigationView.getHeaderView(0).findViewById(R.id.nav_header_TextView_name);
-        text.setText(api.getUserManager().get().getDisplayName());
+        text.setText(ToaApi.getUserManager().getDisplayName());
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
 

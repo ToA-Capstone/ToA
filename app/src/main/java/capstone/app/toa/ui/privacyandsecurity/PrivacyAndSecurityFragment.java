@@ -10,10 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import capstone.app.toa.api.fragment.ToaFragment;
+import capstone.app.toa.api.ToaApi;
 import capstone.app.toa.databinding.FragmentPrivacyAndSecurityBinding;
 
-public class PrivacyAndSecurityFragment extends ToaFragment {
+public class PrivacyAndSecurityFragment extends Fragment {
 
     private FragmentPrivacyAndSecurityBinding binding;
 
@@ -25,10 +25,10 @@ public class PrivacyAndSecurityFragment extends ToaFragment {
                     emailText = binding.fragmentPrivacyAndSecurityTextviewMyemail,
                     idText = binding.fragmentPrivacyAndSecurityTextviewMyid;
 
-        if (api.getUserManager().isLogin()) {
-            nameText.setText(api.getUserManager().get().getDisplayName());
-            emailText.setText(api.getUserManager().getEmail());
-            idText.setText(api.getUserManager().getUid());
+        if (ToaApi.getUserManager().isLogin()) {
+            nameText.setText(ToaApi.getUserManager().getDisplayName());
+            emailText.setText(ToaApi.getUserManager().getEmail());
+            idText.setText(ToaApi.getUserManager().getUid());
         }
 
         return root;

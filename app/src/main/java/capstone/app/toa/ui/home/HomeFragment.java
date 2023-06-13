@@ -23,17 +23,18 @@ import android.widget.TimePicker;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
 import capstone.app.toa.R;
-import capstone.app.toa.api.fragment.ToaFragment;
+import capstone.app.toa.api.ToaApi;
 import capstone.app.toa.databinding.FragmentHomeBinding;
 import capstone.app.toa.api.object.Todo;
 
-public class HomeFragment extends ToaFragment {
+public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
@@ -190,8 +191,8 @@ public class HomeFragment extends ToaFragment {
                         todo.setContent(inputtodo.getText().toString());
                         todo.setEnded_At(timeCombinedValue);
 
-                        api.getTodoManager().add(todo);
-                        api.getDatabaseManager().updateTodos();
+                        ToaApi.getTodoManager().add(todo);
+                        ToaApi.getDatabaseManager().updateTodos();
                     }
                 });
                 addAlert.setNegativeButton("취소",new DialogInterface.OnClickListener() {
@@ -218,7 +219,7 @@ public class HomeFragment extends ToaFragment {
 
     public static void updateTodo() {
         if (activity != null && layout_list != null) {
-            ArrayList<Todo> list = api.getTodoManager().toList();
+            ArrayList<Todo> list = ToaApi.getTodoManager().toList();
 
             for (int i = 0; i < list.size(); i++) {
                 Todo todo = list.get(i);
@@ -268,11 +269,11 @@ public class HomeFragment extends ToaFragment {
                     public void onClick(View view) {
                         //index Textview에서 가져온 값으로 삭제처리
                         int index = Integer.parseInt(index_todo.getText().toString());
-                        if (index < api.getTodoManager().toList().size()) {
-                            api.getTodoManager().remove(api.getTodoManager().toList().get(index));
-                            api.getDatabaseManager().updateTodos();
+                        if (index < ToaApi.getTodoManager().toList().size()) {
+                            ToaApi.getTodoManager().remove(ToaApi.getTodoManager().toList().get(index));
+                            ToaApi.getDatabaseManager().updateTodos();
 
-                            if (api.getTodoManager().toList().size() < 1) {
+                            if (ToaApi.getTodoManager().toList().size() < 1) {
                                 resetTodo();
                                 updateTodo();
                             }
@@ -285,10 +286,10 @@ public class HomeFragment extends ToaFragment {
                         //index Textview에서 가져온 값으로 수정처리
                         int index = Integer.parseInt(index_todo.getText().toString());
 
-                        Todo todo = api.getTodoManager().get(index);
+                        Todo todo = ToaApi.getTodoManager().get(index);
 
                         todo.setContent(content_todo.getText().toString());
-                        api.getDatabaseManager().updateTodos();
+                        ToaApi.getDatabaseManager().updateTodos();
                     }
                 });
 

@@ -8,25 +8,16 @@ import capstone.app.toa.api.manager.UserManager;
 
 public class ToaApi {
 
-    private static ToaApi instance = null;
-
-    public static ToaApi getInstance() {
-        if (instance == null) {
-            instance = new ToaApi();
-        }
-        return instance;
-    }
-
     /**
      * 초기 사용자가 로그인이 완료되었을 때 꼭, 딱 한번 사용해야한다.
      */
-    public void init() {
+    public static void init() {
         databaseManager.init();
     }
     /**
      * 사용자가 로그인되어 있을 때 사용하면 안되며, 사용자가 로그아웃할 때 꼭, 딱 한번 사용해야한다.
      */
-    public void reset() {
+    public static void reset() {
         databaseManager.reset();
         todoManager.toList().clear();
         communityManager.toMap().clear();
@@ -34,21 +25,21 @@ public class ToaApi {
         userManager.getFriends().clear();
     }
 
-    private DatabaseManager databaseManager = new DatabaseManager();
-    private UserManager userManager = new UserManager();
-    private TodoManager todoManager = new TodoManager();
-    private CommunityManager communityManager = new CommunityManager();
+    private static DatabaseManager databaseManager = new DatabaseManager();
+    private static UserManager userManager = new UserManager();
+    private static TodoManager todoManager = new TodoManager();
+    private static CommunityManager communityManager = new CommunityManager();
 
-    public DatabaseManager getDatabaseManager() {
+    public static DatabaseManager getDatabaseManager() {
         return databaseManager;
     }
-    public UserManager getUserManager() {
+    public static UserManager getUserManager() {
         return userManager;
     }
-    public TodoManager getTodoManager() {
+    public static TodoManager getTodoManager() {
         return todoManager;
     }
-    public CommunityManager getCommunityManager() {
+    public static CommunityManager getCommunityManager() {
         return communityManager;
     }
 

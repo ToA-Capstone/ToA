@@ -7,6 +7,7 @@ import com.google.firebase.database.GenericTypeIndicator;
 
 import java.util.ArrayList;
 
+import capstone.app.toa.api.ToaApi;
 import capstone.app.toa.api.listener.CustomValueEventListener;
 import capstone.app.toa.api.object.Todo;
 import capstone.app.toa.ui.home.HomeFragment;
@@ -19,8 +20,8 @@ public class UserTodosChangeListener extends CustomValueEventListener {
         ArrayList<Todo> list = snapshot.getValue(typeIndicator);
 
         if (list != null) {
-            api.getTodoManager().toList().clear();
-            api.getTodoManager().toList().addAll(list);
+            ToaApi.getTodoManager().toList().clear();
+            ToaApi.getTodoManager().toList().addAll(list);
             onChanged();
         }
     }

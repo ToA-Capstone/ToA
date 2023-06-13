@@ -108,7 +108,7 @@ public class UserManager {
      * FirebaseAuth에서 FirebaseUser를 가져옴
      * @return 로그인일 경우 FirebaseUser, 로그아웃일 경우 null
      */
-    public FirebaseUser get() {
+    public FirebaseUser a() {
         return getAuth().getCurrentUser();
     }
     /**
@@ -116,7 +116,7 @@ public class UserManager {
      * @return 로그인일 경우 Uid, 로그아웃일 경우 null
      */
     public String getUid() {
-        return isLogin() ? get().getUid() : null;
+        return isLogin() ? a().getUid() : null;
     }
 
     /**
@@ -124,15 +124,22 @@ public class UserManager {
      * @return 로그인일 경우 Email, 로그아웃일 경우 null
      */
     public String getEmail() {
-        return isLogin() ? get().getEmail() : null;
+        return isLogin() ? a().getEmail() : null;
     }
 
+    /**
+     * Firebase에 등록된 Google 계정의 DisplayName을 가져옴
+     * @return 로그인일 경우 Email, 로그아웃일 경우 null
+     */
+    public String getDisplayName() {
+        return isLogin() ? a().getDisplayName() : null;
+    }
     /**
      * 로그인인지 확인합니다.
      * @return 로그인일 경우 true, 로그아웃일 경우 false
      */
     public boolean isLogin() {
-        return get() != null;
+        return a() != null;
     }
 
 

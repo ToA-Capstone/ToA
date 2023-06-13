@@ -9,8 +9,6 @@ import capstone.app.toa.api.ToaApi;
 
 public abstract class CustomValueEventListener implements ValueEventListener {
 
-    protected static ToaApi api = ToaApi.getInstance();
-
     @Override
     public void onCancelled(@NonNull DatabaseError error) {}
 

@@ -9,6 +9,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import capstone.app.toa.api.ToaApi;
 import capstone.app.toa.api.listener.CustomValueEventListener;
 import capstone.app.toa.api.object.Community;
 
@@ -26,18 +27,18 @@ public class UserCommunitysChangeListener extends CustomValueEventListener {
         ArrayList<String> list = snapshot.getValue(typeIndicator);
 
         if (list != null) {
-            api.getUserManager().getCommunitys().clear();
-            api.getUserManager().getCommunitys().addAll(list);
+            ToaApi.getUserManager().getCommunitys().clear();
+            ToaApi.getUserManager().getCommunitys().addAll(list);
 
             if (!loaded) {
-                for (String name : api.getUserManager().getCommunitys()) {
-                    api.getDatabaseManager().getCommunityReference().child(name).addListenerForSingleValueEvent(new CustomValueEventListener() {
+                for (String name : ToaApi.getUserManager().getCommunitys()) {
+                    ToaApi.getDatabaseManager().getCommunityReference().child(name).addListenerForSingleValueEvent(new CustomValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.exists()) {
                                 Community community = snapshot.getValue(Community.class);
-                                api.getCommunityManager().set(community);
-                                api.getDatabaseManager().setupCommunity(community);
+                                ToaApi.getCommunityManager().set(community);
+                                ToaApi.getDatabaseManager().setupCommunity(community);
                             }
                         }
                     });

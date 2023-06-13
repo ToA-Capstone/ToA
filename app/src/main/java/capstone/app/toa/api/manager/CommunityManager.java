@@ -7,8 +7,6 @@ import capstone.app.toa.api.object.Community;
 
 public class CommunityManager {
 
-    private static ToaApi api = ToaApi.getInstance();
-
     private static HashMap<String, Community> map = new HashMap<>();
 
     /**
@@ -34,10 +32,10 @@ public class CommunityManager {
      */
     public void set(String name, Community community) {
         if (exists(name)) {
-            api.getDatabaseManager().teardownCommunity(community);
+            ToaApi.getDatabaseManager().teardownCommunity(community);
         }
         map.put(name, community);
-        api.getDatabaseManager().setupCommunity(community);
+        ToaApi.getDatabaseManager().setupCommunity(community);
     }
 
     /**
@@ -56,7 +54,7 @@ public class CommunityManager {
      */
     public boolean remove(String name) {
         if (exists(name)) {
-            api.getDatabaseManager().teardownCommunity(get(name));
+            ToaApi.getDatabaseManager().teardownCommunity(get(name));
             map.remove(name);
             return true;
         }

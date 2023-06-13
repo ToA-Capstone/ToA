@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
-import capstone.app.toa.api.fragment.ToaFragment;
 import capstone.app.toa.databinding.CommunityCreateBinding;
 
-public class CreateCommunityFragment extends ToaFragment {
+public class CreateCommunityFragment extends Fragment {
 
     private CommunityCreateBinding binding;
 

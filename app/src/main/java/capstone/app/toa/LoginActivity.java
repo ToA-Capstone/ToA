@@ -28,7 +28,6 @@ import capstone.app.toa.api.ToaApi;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private static ToaApi api = ToaApi.getInstance();
     private static final int RC_SIGN_IN = 9001;
 
     private GoogleSignInClient googleSignInClient;
@@ -83,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
-        api.getUserManager().getAuth().signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        ToaApi.getUserManager().getAuth().signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {

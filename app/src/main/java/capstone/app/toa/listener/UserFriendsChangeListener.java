@@ -7,6 +7,7 @@ import com.google.firebase.database.GenericTypeIndicator;
 
 import java.util.ArrayList;
 
+import capstone.app.toa.api.ToaApi;
 import capstone.app.toa.api.listener.CustomValueEventListener;
 
 public class UserFriendsChangeListener extends CustomValueEventListener {
@@ -17,8 +18,8 @@ public class UserFriendsChangeListener extends CustomValueEventListener {
         ArrayList<String> list = snapshot.getValue(typeIndicator);
 
         if (list != null) {
-            api.getUserManager().getFriends().clear();
-            api.getUserManager().getFriends().addAll(list);
+            ToaApi.getUserManager().getFriends().clear();
+            ToaApi.getUserManager().getFriends().addAll(list);
             onChanged();
         }
     }

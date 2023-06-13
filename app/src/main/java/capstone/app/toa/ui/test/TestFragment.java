@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.shashank.sony.fancytoastlib.FancyToast;
@@ -16,11 +17,10 @@ import java.util.Arrays;
 
 import capstone.app.toa.LoginActivity;
 import capstone.app.toa.api.ToaApi;
-import capstone.app.toa.api.fragment.ToaFragment;
 import capstone.app.toa.api.object.Todo;
 import capstone.app.toa.databinding.FragmentTestBinding;
 
-public class TestFragment extends ToaFragment {
+public class TestFragment extends Fragment {
 
     private FragmentTestBinding binding;
 
@@ -38,8 +38,8 @@ public class TestFragment extends ToaFragment {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                api.getUserManager().getAuth().signOut();
-                api.reset();
+                ToaApi.getUserManager().getAuth().signOut();
+                ToaApi.reset();
                 FancyToast.makeText(getActivity(), "로그아웃", FancyToast.LENGTH_SHORT, FancyToast.WARNING, false).show();
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -56,7 +56,7 @@ public class TestFragment extends ToaFragment {
 //                todo.setContent("asdfasdfadsfg");
 //                todo.setEnded_At(System.currentTimeMillis() + 10000);
 //                todo.setCreated_At(System.currentTimeMillis());
-//                api.getTodoManager().add(todo);
+//                ToaApi.getTodoManager().add(todo);
                 getActivity().finish();
             }
         });

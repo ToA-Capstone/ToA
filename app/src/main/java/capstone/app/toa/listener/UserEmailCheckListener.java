@@ -7,7 +7,7 @@ import com.google.firebase.database.DataSnapshot;
 import capstone.app.toa.api.ToaApi;
 import capstone.app.toa.api.listener.CustomValueEventListener;
 
-public class UserCreatedCheckListener extends CustomValueEventListener {
+public class UserEmailCheckListener extends CustomValueEventListener {
 
     private boolean changed = false;
 
@@ -17,10 +17,11 @@ public class UserCreatedCheckListener extends CustomValueEventListener {
 
     @Override
     public void onDataChange(@NonNull DataSnapshot snapshot) {
-        Long created_at = snapshot.getValue(Long.class);
+        String email = snapshot.getValue(String.class);
+        String googleEmail = ToaApi.getUserManager().getEmail();
 
-        if (!changed && (created_at == null || created_at < 0)) {
-            ToaApi.getDatabaseManager().getUserReference().child("created_at").setValue(System.currentTimeMillis());
+        if (!changed && (email == null || !email.equals(googleEmail))) {
+            ToaApi.getDatabaseManager().getUserReference().child("email").setValue(googleEmail);
             changed = true;
         }
 

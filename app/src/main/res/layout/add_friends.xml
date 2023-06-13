@@ -22,20 +22,20 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/addFriend_Edittext_search"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
+                android:id="@+id/addFriend_EditText_Search"
+                android:layout_width="290dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:hint="검색하실 ID를 입력하세요"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:background="#FFFFFF"
                 android:imeOptions="actionSearch"
                 android:inputType="text"
                 android:maxLines="1" />
 
             <Button
-                android:id="@+id/addFriend_Button_search"
+                android:id="@+id/addFriend_Button_Search"
                 android:background="@drawable/reading_glasses"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -58,7 +58,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/addFriend_Button_add"
+                android:id="@+id/addFriend_Button_Add"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="230dp"
@@ -69,13 +69,14 @@
             android:layout_width="match_parent"
             android:layout_height="60dp">
             <!-- 검색 결과 리스트뷰!-->
-            <LinearLayout
-                android:id="@+id/addFriend_LinearLayout_searchview"
+            <TextView
+                android:id="@+id/addFriend_TextView_SearchView"
                 android:layout_width="330dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="20dp"
                 android:background="#FFFFFF"
+                android:textSize="15dp"
                 android:gravity="center"
                 android:orientation="horizontal" />
         </LinearLayout>
@@ -97,7 +98,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/addFriend_Button_minus"
+                android:id="@+id/addFriend_Button_Minus"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="230dp"
@@ -109,7 +110,7 @@
             android:layout_height="200dp">
         <!-- 검색 결과 리스트뷰!-->
         <ListView
-            android:id="@+id/addFriend_Listview_friendview"
+            android:id="@+id/addFriend_Listview_friends"
             android:layout_marginLeft="20dp"
             android:layout_width="330dp"
             android:layout_height="200dp"

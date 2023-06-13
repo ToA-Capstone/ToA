@@ -8,13 +8,13 @@ import java.util.HashMap;
 import capstone.app.toa.api.ToaApi;
 import capstone.app.toa.api.listener.CustomValueEventListener;
 import capstone.app.toa.api.object.Community;
-import capstone.app.toa.service.listener.CommunityOwnerChangeListener;
-import capstone.app.toa.service.listener.CommunityTodosChangeListener;
-import capstone.app.toa.service.listener.CommunityUsersChangeListener;
-import capstone.app.toa.service.listener.UserCommunitysChangeListener;
-import capstone.app.toa.service.listener.UserCreatedCheckListener;
-import capstone.app.toa.service.listener.UserFriendsChangeListener;
-import capstone.app.toa.service.listener.UserTodosChangeListener;
+import capstone.app.toa.listener.CommunityOwnerChangeListener;
+import capstone.app.toa.listener.CommunityTodosChangeListener;
+import capstone.app.toa.listener.CommunityUsersChangeListener;
+import capstone.app.toa.listener.UserCommunitysChangeListener;
+import capstone.app.toa.listener.UserCreatedCheckListener;
+import capstone.app.toa.listener.UserFriendsChangeListener;
+import capstone.app.toa.listener.UserTodosChangeListener;
 
 public class DatabaseManager {
 

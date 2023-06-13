@@ -1,4 +1,4 @@
-package capstone.app.toa.service.listener;
+package capstone.app.toa.listener;
 
 import androidx.annotation.NonNull;
 
@@ -8,8 +8,20 @@ import com.google.firebase.database.GenericTypeIndicator;
 import java.util.ArrayList;
 
 import capstone.app.toa.api.listener.CustomValueEventListener;
+import capstone.app.toa.api.object.Community;
+import capstone.app.toa.api.object.Todo;
 
-public class UserFriendsChangeListener extends CustomValueEventListener {
+public class CommunityUsersChangeListener extends CustomValueEventListener {
+
+    public CommunityUsersChangeListener(Community community) {
+        this.community = community;
+    }
+
+    private Community community;
+
+    public Community getCommunity() {
+        return community;
+    }
 
     @Override
     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -17,8 +29,8 @@ public class UserFriendsChangeListener extends CustomValueEventListener {
         ArrayList<String> list = snapshot.getValue(typeIndicator);
 
         if (list != null) {
-            api.getUserManager().getFriends().clear();
-            api.getUserManager().getFriends().addAll(list);
+            community.getUsers().clear();
+            community.getUsers().addAll(list);
             onChanged();
         }
     }
@@ -26,6 +38,7 @@ public class UserFriendsChangeListener extends CustomValueEventListener {
     /**
      * 데이터가 바뀐 뒤 실행되는 메소드
      */
-    public void onChanged() {}
+    public void onChanged() {
+    }
 
 }

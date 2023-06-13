@@ -63,6 +63,9 @@ public class UserManager {
         }
         return false;
     }
+    public void removeFriend(int index) {
+        friends.remove(index);
+    }
     /**
      * 친구 목록에서 친구가 있는지 확인합니다.
      * @param uid User Uid

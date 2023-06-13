@@ -110,7 +110,7 @@
             android:layout_height="200dp">
         <!-- 검색 결과 리스트뷰!-->
         <ListView
-            android:id="@+id/addFriend_Listview_friends"
+            android:id="@+id/addFriend_ListView_friends"
             android:layout_marginLeft="20dp"
             android:layout_width="330dp"
             android:layout_height="200dp"

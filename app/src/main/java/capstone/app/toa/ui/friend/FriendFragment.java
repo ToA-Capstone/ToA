@@ -39,10 +39,21 @@ public class FriendFragment extends Fragment {
         btn_Search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String searchContent = editText_Search.getText().toString();
+
+                if (searchContent == null || searchContent.length() < 1) {
+                    textView_Result.setText("검색하실 이메일을 입력하세요!");
+                    return;
+                }
+
+                if (!searchContent.contains("@") || !searchContent.contains(".")) {
+                    textView_Result.setText("이메일 형식이 아닙니다!");
+                    return;
+                }
+
                 ToaApi.getDatabaseManager().getReference("users").addListenerForSingleValueEvent(new CustomValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String searchContent = editText_Search.getText().toString();
                         for (DataSnapshot ds : snapshot.getChildren()) {
                             String email = ds.child("email").getValue(String.class);
 

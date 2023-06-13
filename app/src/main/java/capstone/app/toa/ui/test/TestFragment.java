@@ -26,10 +26,7 @@ public class TestFragment extends ToaFragment {
 
     private Button logoutButton, testButton;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        TestViewModel slideshowViewModel = new ViewModelProvider(this).get(TestViewModel.class);
-
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentTestBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
@@ -53,13 +50,14 @@ public class TestFragment extends ToaFragment {
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Todo todo = new Todo();
-
-                todo.setTitle("ㅁㄴㅇㄹ");
-                todo.setContent("asdfasdfadsfg");
-                todo.setEnded_At(System.currentTimeMillis() + 10000);
-                todo.setCreated_At(System.currentTimeMillis());
-                api.getTodoManager().add(todo);
+//                Todo todo = new Todo();
+//
+//                todo.setTitle("ㅁㄴㅇㄹ");
+//                todo.setContent("asdfasdfadsfg");
+//                todo.setEnded_At(System.currentTimeMillis() + 10000);
+//                todo.setCreated_At(System.currentTimeMillis());
+//                api.getTodoManager().add(todo);
+                getActivity().finish();
             }
         });
         return root;

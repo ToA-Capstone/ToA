@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -19,7 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import capstone.app.toa.api.ToaApi;
 import capstone.app.toa.databinding.ActivityMainBinding;
-import capstone.app.toa.ui.friend.FriendFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,9 +47,14 @@ public class MainActivity extends AppCompatActivity {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
 
-        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_commu_create, R.id.nav_commu_manage, R.id.nav_commu_sched, R.id.nav_privacy_and_security, R.id.nav_test)
-                                .setOpenableLayout(drawer)
-                                .build();
+        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home,
+                                                                R.id.nav_commu_create,
+                                                                R.id.nav_commu_manage,
+                                                                R.id.nav_commu_sched,
+                                                                R.id.nav_privacy_and_security,
+                                                                R.id.nav_test)
+                                                .setOpenableLayout(drawer)
+                                                .build();
 
         TextView text = navigationView.getHeaderView(0).findViewById(R.id.nav_header_TextView_name);
         text.setText(api.getUserManager().get().getDisplayName());
@@ -67,10 +70,14 @@ public class MainActivity extends AppCompatActivity {
         button_friend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.nav_list_friend);
+                if (navController.getCurrentDestination().getId() != R.id.nav_list_friend) {
+                    navController.navigate(R.id.nav_list_friend);
+                }
             }
         });
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

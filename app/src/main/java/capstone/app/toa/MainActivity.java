@@ -3,14 +3,12 @@ package capstone.app.toa;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -21,7 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import capstone.app.toa.api.ToaApi;
 import capstone.app.toa.databinding.ActivityMainBinding;
-import capstone.app.toa.ui.community.friend;
+import capstone.app.toa.ui.friend.FriendFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,17 +62,14 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
         //친구목록화면 버튼
-//        button_friend = binding.appBarMain.appBarMainButtonFriend;
-//
-//        button_friend.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
-//                friend fri = new friend();
-//                trans.replace(R.id.nav_host_fragment_content_main, fri);
-//                trans.commit();
-//            }
-//        });
+        button_friend = binding.appBarMain.appBarMainButtonFriend;
+
+        button_friend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.navigate(R.id.nav_list_friend);
+            }
+        });
     }
 
     @Override

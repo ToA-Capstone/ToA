@@ -38,12 +38,12 @@
     <fragment
         android:id="@+id/nav_test"
         android:name="capstone.app.toa.ui.test.TestFragment"
-        android:label="Test"
+        android:label="옵션"
         tools:layout="@layout/fragment_test" />
 
     <fragment
         android:id="@+id/nav_list_friend"
-        android:name="capstone.app.toa.ui.community.friend"
+        android:name="capstone.app.toa.ui.friend.FriendFragment"
         android:label="친구목록"
         android:layout="@layout/add_friedns"/>
 </navigation>

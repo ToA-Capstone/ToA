@@ -1,6 +1,5 @@
-package capstone.app.toa.ui.community;
+package capstone.app.toa.ui.friend;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,11 +8,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import capstone.app.toa.R;
 import capstone.app.toa.api.fragment.ToaFragment;
 import capstone.app.toa.databinding.AddFriednsBinding;
 
-public class friend extends ToaFragment {
+public class FriendFragment extends ToaFragment {
 
     private AddFriednsBinding binding;
 
@@ -28,12 +26,8 @@ public class friend extends ToaFragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

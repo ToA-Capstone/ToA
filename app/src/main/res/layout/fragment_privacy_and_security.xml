@@ -15,7 +15,7 @@
 
         <!-- 이름 관리 !-->
         <LinearLayout
-            android:layout_width="300dp"
+            android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="60dp"
@@ -27,22 +27,22 @@
                 android:layout_height="48dp"
                 android:gravity="center"
                 android:text="이 름"
-                android:textSize="25sp"></TextView>
+                android:textSize="18sp"></TextView>
 
             <!-- 본인 이름  !-->
             <TextView
                 android:id="@+id/fragment_privacy_and_security_textview_myname"
-                android:layout_width="150dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="10dp"
                 android:gravity="center"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:text="본인 이름"></TextView>
         </LinearLayout>
 
         <!-- 이메일 관리 !-->
         <LinearLayout
-            android:layout_width="300dp"
+            android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
@@ -54,23 +54,23 @@
                 android:layout_height="48dp"
                 android:gravity="center"
                 android:text="이메일"
-                android:textSize="25sp"></TextView>
+                android:textSize="18sp"></TextView>
 
             <!-- 본인 이메일  !-->
             <TextView
                 android:id="@+id/fragment_privacy_and_security_textview_myemail"
-                android:layout_width="150dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="10dp"
                 android:gravity="center"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 android:text="본인 이메일">
             </TextView>
         </LinearLayout>
 
         <!-- 아이디 관리 !-->
         <LinearLayout
-            android:layout_width="300dp"
+            android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
@@ -81,17 +81,17 @@
                 android:layout_width="70dp"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:text="아이디"
-                android:textSize="25sp"></TextView>
+                android:text="UID"
+                android:textSize="18sp"></TextView>
 
             <!-- 본인 아이디  !-->
             <TextView
                 android:id="@+id/fragment_privacy_and_security_textview_myid"
-                android:layout_width="150dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="10dp"
                 android:gravity="center"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 android:text="본인 아이디"></TextView>
         </LinearLayout>
 

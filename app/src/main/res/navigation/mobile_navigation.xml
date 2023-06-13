@@ -12,24 +12,6 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="capstone.app.toa.ui.memo.MemoFragment"
-        android:label="Memo"
-        tools:layout="@layout/fragment_memo" />
-
-    <fragment
-        android:id="@+id/nav_privacy_and_security"
-        android:name="capstone.app.toa.ui.privacyandsecurity.PrivacyAndSecurityFragment"
-        android:label="개인정보 및 보안"
-        tools:layout="@layout/fragment_memo" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="capstone.app.toa.ui.test.TestFragment"
-        android:label="Test"
-        tools:layout="@layout/fragment_test" />
-
-    <fragment
         android:id="@+id/nav_commu_create"
         android:name="capstone.app.toa.ui.community.CreateCommunityFragment"
         android:label="커뮤니티 생성"
@@ -46,4 +28,16 @@
         android:name="capstone.app.toa.ui.community.CommunityScheduleFragment"
         android:label="커뮤니티 일정관리"
         tools:layout="@layout/community_management" />
+
+    <fragment
+        android:id="@+id/nav_privacy_and_security"
+        android:name="capstone.app.toa.ui.privacyandsecurity.PrivacyAndSecurityFragment"
+        android:label="개인정보 및 보안"
+        tools:layout="@layout/fragment_privacy_and_security" />
+
+    <fragment
+        android:id="@+id/nav_test"
+        android:name="capstone.app.toa.ui.test.TestFragment"
+        android:label="Test"
+        tools:layout="@layout/fragment_test" />
 </navigation>

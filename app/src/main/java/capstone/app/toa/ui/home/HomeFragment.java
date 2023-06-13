@@ -33,7 +33,7 @@ import capstone.app.toa.api.fragment.ToaFragment;
 import capstone.app.toa.databinding.FragmentHomeBinding;
 import capstone.app.toa.api.object.Todo;
 
-public class HomeFragment extends ToaFragment implements GestureDetector.OnGestureListener {
+public class HomeFragment extends ToaFragment {
 
     private FragmentHomeBinding binding;
 
@@ -41,7 +41,6 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
     private static FragmentActivity activity;
     private static Resources resources;
 
-    private GestureDetector gestureDetector;
     private Button button_add;
     private LinearLayout layout_required;
     private TextView required_title, required_text;
@@ -66,35 +65,42 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
 
         button_add = binding.ButtonAdd;
         layout_required = binding.layoutRequired;
+
         //추천list(정적)
-        todo_required1=View.inflate(getActivity(),R.layout.todo_required,null);
-        required_text=todo_required1.findViewById(R.id.required_text);
-        required_title=todo_required1.findViewById(R.id.required_title);
+        todo_required1 = View.inflate(getActivity(),R.layout.todo_required,null);
+
+        required_title = todo_required1.findViewById(R.id.required_title);
         required_title.setBackgroundColor(Color.WHITE);
-        required_text.setBackgroundColor(Color.WHITE);
         required_title.setText("캡스톤보고서");
+
+        required_text = todo_required1.findViewById(R.id.required_text);
+        required_text.setBackgroundColor(Color.WHITE);
         required_text.setText("보고서 작성\n설문조사 작성");
+
         layout_required.addView(todo_required1);
 
-        todo_required2=View.inflate(getActivity(),R.layout.todo_required,null);
-        required_text=todo_required2.findViewById(R.id.required_text);
+        todo_required2 = View.inflate(getActivity(),R.layout.todo_required,null);
+
+        required_text = todo_required2.findViewById(R.id.required_text);
         required_text.setBackgroundColor(Color.WHITE);
-        required_title=todo_required2.findViewById(R.id.required_title);
+
+        required_title = todo_required2.findViewById(R.id.required_title);
         required_title.setBackgroundColor(Color.WHITE);
         required_title.setText("캡스톤 발표");
         required_text.setText("ppt 만들기\n대본만들기");
+
         layout_required.addView(todo_required2);
 
         layout_list = binding.LayoutList;
         activity = getActivity();
         resources = getResources();
 
-        gestureDetector = new GestureDetector(getContext(), this);
+        updateTodo();
 
         button_add.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 //리스트 내용 입력 alert창
-                alert_addlist=View.inflate(getActivity(), R.layout.alert_addlist, null);
+                alert_addlist = View.inflate(getActivity(), R.layout.alert_addlist, null);
                 editTitle_alert = alert_addlist.findViewById(R.id.editTitle_alert);
                 inputtodo = alert_addlist.findViewById(R.id.input_Todo);
                 button_deadline = alert_addlist.findViewById(R.id.button_deadLine);
@@ -210,20 +216,6 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
         resources = null;
     }
 
-    @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY){
-        if(e1.getY()>e2.getY()){
-            return true;
-        }
-        return false;
-    }
-
-    public boolean onDown(MotionEvent e){return false;}
-    public void onShowPress(MotionEvent e){}
-    public boolean onSingleTapUp(MotionEvent e){return false;}
-    public boolean onScroll(MotionEvent e,MotionEvent e2,float a, float b){return false;}
-    public void onLongPress(MotionEvent e){}
-
     public static void updateTodo() {
         if (activity != null && layout_list != null) {
             ArrayList<Todo> list = api.getTodoManager().toList();
@@ -241,8 +233,7 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
                 Button button_del = view.findViewById(R.id.button_trash_can);
                 Button button_cor = view.findViewById(R.id.button_correction);
 
-                @SuppressLint("ResourceType")
-                ImageButton alarm = (ImageButton) View.inflate(activity, R.id.todo_widget_alarm_onoff,null);
+                ImageButton alarm = view.findViewById(R.id.todo_widget_alarm_onoff);
 
                 alarm.setOnClickListener(new View.OnClickListener() {
                     boolean isResume = false;
@@ -272,10 +263,6 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
                                     calendar.get(Calendar.HOUR_OF_DAY) + "시 " +
                                     calendar.get(Calendar.MINUTE) + "분 까지");
 
-                //Todo View 생성
-                layout_list.addView(view);
-
-
                 button_del.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -283,6 +270,7 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
                         int index = Integer.parseInt(index_todo.getText().toString());
                         if (index < api.getTodoManager().toList().size()) {
                             api.getTodoManager().remove(api.getTodoManager().toList().get(index));
+                            api.getDatabaseManager().updateTodos();
 
                             if (api.getTodoManager().toList().size() < 1) {
                                 resetTodo();
@@ -303,6 +291,9 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
                         api.getDatabaseManager().updateTodos();
                     }
                 });
+
+                //Todo View 생성
+                layout_list.addView(view);
             }
         }
     }

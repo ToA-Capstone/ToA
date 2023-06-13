@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -45,13 +47,18 @@ public class MainActivity extends AppCompatActivity {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
 
-        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_gallery, R.id.nav_privacy_and_security, R.id.nav_slideshow)
-                                                .setOpenableLayout(drawer).build();
+        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_commu_create, R.id.nav_commu_manage, R.id.nav_commu_sched, R.id.nav_privacy_and_security, R.id.nav_test)
+                                .setOpenableLayout(drawer)
+                                .build();
+
+        TextView text = navigationView.getHeaderView(0).findViewById(R.id.nav_header_TextView_name);
+        text.setText(api.getUserManager().get().getDisplayName());
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
 
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
     }
 
     @Override

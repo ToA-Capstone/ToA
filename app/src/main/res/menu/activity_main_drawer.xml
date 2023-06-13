@@ -26,7 +26,7 @@
             android:icon="@drawable/lock"
             android:title="개인정보 및 보안" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_test"
             android:icon="@drawable/option"
             android:title="옵션" />
     </group>

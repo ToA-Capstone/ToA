@@ -39,7 +39,6 @@ public class CommunityTodosChangeListener extends CustomValueEventListener {
      * 데이터가 바뀐 뒤 실행되는 메소드
      */
     public void onChanged() {
-
     }
 
 }

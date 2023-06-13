@@ -21,7 +21,8 @@
             android:layout_height="fill_parent"
             android:orientation="horizontal"
             android:gravity="right">
-            <Button
+            <ImageButton
+                android:id="@+id/todo_widget_alarm_onoff"
                 android:layout_width="27dp"
                 android:layout_height="25dp"
                 android:background="@drawable/alarm_on"/>

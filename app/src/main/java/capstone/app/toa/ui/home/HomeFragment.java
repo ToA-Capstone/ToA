@@ -1,6 +1,8 @@
 package capstone.app.toa.ui.home;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -36,6 +39,7 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
 
     private static LinearLayout layout_list;
     private static FragmentActivity activity;
+    private static Resources resources;
 
     private GestureDetector gestureDetector;
     private Button button_add;
@@ -83,6 +87,7 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
 
         layout_list = binding.LayoutList;
         activity = getActivity();
+        resources = getResources();
 
         gestureDetector = new GestureDetector(getContext(), this);
 
@@ -202,6 +207,7 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
         binding = null;
         layout_list = null;
         activity = null;
+        resources = null;
     }
 
     @Override
@@ -234,6 +240,23 @@ public class HomeFragment extends ToaFragment implements GestureDetector.OnGestu
 
                 Button button_del = view.findViewById(R.id.button_trash_can);
                 Button button_cor = view.findViewById(R.id.button_correction);
+
+                @SuppressLint("ResourceType")
+                ImageButton alarm = (ImageButton) View.inflate(activity, R.id.todo_widget_alarm_onoff,null);
+
+                alarm.setOnClickListener(new View.OnClickListener() {
+                    boolean isResume = false;
+
+                    public void onClick(View v) {
+                        if (!isResume) {
+                            isResume = true;
+                            alarm.setBackground(resources.getDrawable(R.drawable.alarm_on));
+                        } else {
+                            isResume = false;
+                            alarm.setBackground(resources.getDrawable(R.drawable.alarm_off));
+                        }
+                    }
+                });
 
                 Calendar calendar = Calendar.getInstance();
 

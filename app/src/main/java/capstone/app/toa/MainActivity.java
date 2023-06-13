@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -19,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import capstone.app.toa.api.ToaApi;
 import capstone.app.toa.databinding.ActivityMainBinding;
+import capstone.app.toa.ui.community.friend;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private Button button_friend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +63,18 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        //친구목록화면 버튼
+//        button_friend = binding.appBarMain.appBarMainButtonFriend;
+//
+//        button_friend.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+//                friend fri = new friend();
+//                trans.replace(R.id.nav_host_fragment_content_main, fri);
+//                trans.commit();
+//            }
+//        });
     }
 
     @Override
